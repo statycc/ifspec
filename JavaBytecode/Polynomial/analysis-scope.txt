@@ -1,0 +1,2 @@
+INTERFACE LMyClass;->compute(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;
+ENVIRONMENT LMyClass;->main([Ljava/lang/String;)V

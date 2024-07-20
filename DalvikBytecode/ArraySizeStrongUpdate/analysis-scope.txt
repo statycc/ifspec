@@ -1,0 +1,1 @@
+INTERFACE LMain;->main([Ljava/lang/String;)V

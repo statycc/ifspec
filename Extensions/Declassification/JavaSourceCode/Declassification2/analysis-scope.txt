@@ -1,0 +1,2 @@
+INTERFACE Declassification1.onLocationChanged(Location)
+ENVIRONMENT Declassification1.getPointOfInterest(java.lang.String)

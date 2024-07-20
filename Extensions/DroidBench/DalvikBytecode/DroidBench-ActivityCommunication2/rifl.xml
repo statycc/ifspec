@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-DalvikBytecode-1.0.dtd">
+<riflspec>
+  <interfacespec>
+    <assignable handle="h">
+      <category name="highCat">
+        <source>
+          <returnvalue class="Landroid/telephony/TelephonyManager;" method="getDeviceId()Ljava/lang/String;"/>
+        </source>
+        <source>
+          <returnvalue class="Landroid/telephony/TelephonyManager;" method="getSimSerialNumber()Ljava/lang/String;"/>
+        </source>
+        <source>
+          <returnvalue class="Landroid/telephony/TelephonyManager;" method="getSubscriberId()Ljava/lang/String;"/>
+        </source>
+        <source>
+          <returnvalue class="Landroid/text/SpannableStringBuilder;" method="toString()Ljava/lang/String;"/>
+        </source>
+        <source>
+          <returnvalue class="Landroid/location/Location;" method="getLongitude()D"/>
+        </source>
+        <source>
+          <returnvalue class="Landroid/location/Location;" method="getLatitude()D"/>
+        </source>
+        <source>
+          <returnvalue class="Landroid/os/Bundle;" method="get(Ljava/lang/String;)Ljava/lang/Object;"/>
+        </source>
+        <source>
+          <returnvalue class="Landroid/os/Bundle;" method="getString(Ljava/lang/String;)Ljava/lang/String;"/>
+        </source>
+      </category>
+    </assignable>
+    <assignable handle="l">
+      <category name="lowCat">
+        <sink>
+          <parameter class="Landroid/telephony/SmsManager;" method="sendTextMessage(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Landroid/app/PendingIntent;Landroid/app/PendingIntent;)V" parameter="3"/>
+        </sink>
+        <sink>
+          <parameter class="Landroid/util/Log;" method="i(Ljava/lang/String;Ljava/lang/String;)I" parameter="2"/>
+        </sink>
+        <sink>
+          <parameter class="Landroid/util/Log;" method="d(Ljava/lang/String;Ljava/lang/String;)I" parameter="2"/>
+        </sink>
+        <sink>
+          <parameter class="Landroid/util/Log;" method="v(Ljava/lang/String;Ljava/lang/String;)I" parameter="2"/>
+        </sink>
+        <sink>
+          <parameter class="Landroid/app/Activity;" method="setResult(ILandroid/content/Intent;)V" parameter="2"/>
+        </sink>
+        <sink>
+          <parameter class="Landroid/app/Activity;" method="startActivity(Landroid/content/Intent;)V" parameter="1"/>
+        </sink>
+        <sink>
+          <parameter class="Ljava/net/URL;" method="&lt;init&gt;(Ljava/lang/String;)V" parameter="1"/>
+        </sink>
+        <sink>
+          <parameter class="Ljava/lang/ProcessBuilder;" method="command([Ljava/lang/String;)Ljava/lang/ProcessBuilder;" parameter="1"/>
+        </sink>
+      </category>
+      <!-- Cannot annotate the this-Pointer in RIFL
+             Not sure what the DroidBench guys meant there.
+        <sink>
+          <parameter class="Ljava/net/URL;" method="openConnection()Ljava/net/URLConnection;" parameter="0"/>
+        </sink>
+        -->
+    </assignable>
+  </interfacespec>
+  <domains>
+    <domain name="high"/>
+    <domain name="low"/>
+  </domains>
+  <flowrelation>
+    <flow from="low" to="high"/>
+  </flowrelation>
+  <domainassignment>
+    <assign domain="high" handle="h"/>
+    <assign domain="low" handle="l"/>
+  </domainassignment>
+</riflspec>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaBytecode-1.0.dtd">
+<riflspec>
+  <interfacespec>
+    <assignable handle="h">
+      <category name="someCat">
+	<source>
+<parameter class="LReviewProcess;" method="addReview(IILjava/lang/String;)V" parameter="1"/>
+</source>
+      </category>
+    </assignable>
+    <assignable handle="l">
+      <category name="anotherCat">
+	<source>
+<parameter class="LReviewProcess;" method="addReview(IILjava/lang/String;)V" parameter="2"/>
+</source>
+	<source>
+<parameter class="LReviewProcess;" method="addReview(IILjava/lang/String;)V" parameter="3"/>
+</source>
+        <sink>
+<parameter class="Ljava/io/PrintStream;" method="println(Ljava/lang/String;)V" parameter="1"/>
+</sink>
+      </category>
+    </assignable>
+  </interfacespec>
+
+  <domains>
+<domain name="high"/>
+<domain name="low"/>
+</domains>
+  <flowrelation>
+<flow from="low" to="high"/>
+</flowrelation>
+  <domainassignment>
+    <assign domain="high" handle="h"/>
+    <assign domain="low" handle="l"/>
+  </domainassignment>
+</riflspec>
+

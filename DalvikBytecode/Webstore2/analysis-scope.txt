@@ -1,0 +1,3 @@
+INTERFACE LWebstore;->seePreview(I)LWebstore$Video;
+INTERFACE LWebstore;->seePrime(I)LWebstore$Video;
+ENVIRONMENT LWebstore;->main([Ljava/lang/String;)V

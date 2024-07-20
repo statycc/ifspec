@@ -1,0 +1,6 @@
+Probabilistic Noninterference (Joana and JoDroid) [1]
+
+[1] S. Bischof, J. Breitner, J. Graf, M. Hecker, M. Mohr, and G. Snelting, 
+“Low-deterministic security for low-deterministic programs,” 
+2017, Preprint from authors website. 
+[Online]. Available: https://pp.ipd.kit.edu/uploads/publikationen/bischof17rlsod.pdf

@@ -1,0 +1,1 @@
+INTERFACE LPasswordChecker;->main([Ljava/lang/String;)V

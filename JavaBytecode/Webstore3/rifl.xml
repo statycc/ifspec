@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaBytecode-1.0.dtd">
+<riflspec>
+  <interfacespec>
+    <assignable handle="h">
+      <category name="someCat">	
+	<source>
+<parameter class="LWebstore;" method="setDeliveryAdr(II)V" parameter="1"/>
+</source>
+	<source>
+<parameter class="LWebstore;" method="setDeliveryAdr(II)V" parameter="2"/>
+</source>	
+      </category>
+    </assignable>
+    <assignable handle="l">
+      <category name="anotherCat">
+	<sink>
+<field class="LWebstore$Adress;" name="name"/>
+</sink>
+	<sink>
+<field class="LWebstore$Adress;" name="street"/>
+</sink>
+      </category>
+    </assignable>
+ 	<assignable handle="h2">
+      <category name="anotherCat2">
+	<sink>
+<field class="LWebstore$DAdress;" name="name"/>
+</sink>
+	<sink>
+<field class="LWebstore$DAdress;" name="street"/>
+</sink>
+      </category>
+    </assignable>
+
+  </interfacespec>
+  <domains>
+<domain name="high"/>
+<domain name="low"/>
+</domains>
+  <flowrelation>
+<flow from="low" to="high"/>
+</flowrelation>
+  <domainassignment>
+    <assign domain="high" handle="h"/>
+	<assign domain="low" handle="l"/>
+	<assign domain="high" handle="h2"/>
+  </domainassignment>
+</riflspec>
+

@@ -1,0 +1,3 @@
+INTERFACE LTryCatch;->f(I)I
+ENVIRONMENT LTryCatch;->g(I)I
+ENVIRONMENT LTryCatch;->main([Ljava/lang/String;)V

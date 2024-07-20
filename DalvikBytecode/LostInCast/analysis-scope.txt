@@ -1,0 +1,2 @@
+INTERFACE LlostInCast;->doIt(I)I
+ENVIRONMENT LlostInCast;->main([Ljava/lang/String;)V

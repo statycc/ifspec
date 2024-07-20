@@ -1,0 +1,2 @@
+INTERFACE LEg2;->f(II)I
+ENVIRONMENT LEg2;->main([Ljava/lang/String;)V

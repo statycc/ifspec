@@ -1,0 +1,3 @@
+INTERFACE LExceptionDivZero;->main([Ljava/lang/String;)V
+ENVIRONMENT LExceptionDivZero;->writeToDB(Ljava/lang/String;)V
+ENVIRONMENT LExceptionDivZero;->writeToDisk(Ljava/lang/String;)V

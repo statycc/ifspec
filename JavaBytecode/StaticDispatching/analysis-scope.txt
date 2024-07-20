@@ -1,0 +1,2 @@
+INTERFACE LStaticDispatching;->f()V
+ENVIRONMENT LStaticDispatching;->main([Ljava/lang/String;)V

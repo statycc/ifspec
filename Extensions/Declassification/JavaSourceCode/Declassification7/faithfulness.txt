@@ -1,0 +1,9 @@
+The specification correctly defines the length and content of int arrays as high
+source of information.  Furthermore, the specification correctly defines the
+return value of the method getAverageSalaries a a low sink.  Together this captures that
+there should be no information flow from the array salaries to the return value
+of the method getAverageSalries.  The desired exception to this requirement is
+defined by the the escape hatch "(\sum int i; 0 <= i && i < salaries.length; salaries[i])/salaries.length".  That is,
+because the escape hatch expresses the fact that the average of the content of the array salary may be
+declassified at the beginning of the method.
+

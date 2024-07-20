@@ -1,0 +1,2 @@
+INTERFACE LSimpleErasureByConditionalChecks;->computeSecretly(I)I
+ENVIRONMENT LSimpleErasureByConditionalChecks;->main([Ljava/lang/String;)V

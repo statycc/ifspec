@@ -1,0 +1,2 @@
+INTERFACE LPasswordManager;->tryLogin(Ljava/lang/String;)V
+ENVIRONMENT LMain;->main([Ljava/lang/String;)V

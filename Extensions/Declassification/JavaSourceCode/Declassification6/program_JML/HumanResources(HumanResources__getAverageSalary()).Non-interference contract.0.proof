@@ -1,0 +1,1051 @@
+\profile "Java Profile";
+
+\settings {
+"#Proof-Settings-Config-File
+#Mon Mar 27 18:29:13 CEST 2017
+[StrategyProperty]VBT_PHASE=VBT_SYM_EX
+[SMTSettings]useUninterpretedMultiplication=true
+[SMTSettings]SelectedTaclets=
+[StrategyProperty]METHOD_OPTIONS_KEY=METHOD_CONTRACT
+[StrategyProperty]USER_TACLETS_OPTIONS_KEY3=USER_TACLETS_OFF
+[StrategyProperty]SYMBOLIC_EXECUTION_ALIAS_CHECK_OPTIONS_KEY=SYMBOLIC_EXECUTION_ALIAS_CHECK_NEVER
+[StrategyProperty]LOOP_OPTIONS_KEY=LOOP_INVARIANT
+[StrategyProperty]USER_TACLETS_OPTIONS_KEY2=USER_TACLETS_OFF
+[StrategyProperty]USER_TACLETS_OPTIONS_KEY1=USER_TACLETS_OFF
+[StrategyProperty]QUANTIFIERS_OPTIONS_KEY=QUANTIFIERS_NON_SPLITTING_WITH_PROGS
+[StrategyProperty]NON_LIN_ARITH_OPTIONS_KEY=NON_LIN_ARITH_NONE
+[SMTSettings]instantiateHierarchyAssumptions=true
+[StrategyProperty]AUTO_INDUCTION_OPTIONS_KEY=AUTO_INDUCTION_OFF
+[StrategyProperty]DEP_OPTIONS_KEY=DEP_ON
+[StrategyProperty]BLOCK_OPTIONS_KEY=BLOCK_CONTRACT
+[StrategyProperty]CLASS_AXIOM_OPTIONS_KEY=CLASS_AXIOM_FREE
+[StrategyProperty]SYMBOLIC_EXECUTION_NON_EXECUTION_BRANCH_HIDING_OPTIONS_KEY=SYMBOLIC_EXECUTION_NON_EXECUTION_BRANCH_HIDING_OFF
+[StrategyProperty]QUERY_NEW_OPTIONS_KEY=QUERY_OFF
+[Strategy]Timeout=-1
+[Strategy]MaximumNumberOfAutomaticApplications=10000
+[SMTSettings]integersMaximum=2147483645
+[Choice]DefaultChoices=assertions-assertions\\:on , initialisation-initialisation\\:disableStaticInitialisation , intRules-intRules\\:arithmeticSemanticsIgnoringOF , programRules-programRules\\:Java , runtimeExceptions-runtimeExceptions\\:ban , JavaCard-JavaCard\\:on , Strings-Strings\\:on , modelFields-modelFields\\:treatAsAxiom , bigint-bigint\\:on , sequences-sequences\\:on , moreSeqRules-moreSeqRules\\:on , reach-reach\\:on , integerSimplificationRules-integerSimplificationRules\\:full , wdOperator-wdOperator\\:L , wdChecks-wdChecks\\:off , permissions-permissions\\:off , joinGenerateIsWeakeningGoal-joinGenerateIsWeakeningGoal\\:off
+[SMTSettings]useConstantsForBigOrSmallIntegers=true
+[StrategyProperty]STOPMODE_OPTIONS_KEY=STOPMODE_DEFAULT
+[StrategyProperty]QUERYAXIOM_OPTIONS_KEY=QUERYAXIOM_OFF
+[StrategyProperty]INF_FLOW_CHECK_PROPERTY=INF_FLOW_CHECK_TRUE
+[SMTSettings]maxGenericSorts=2
+[SMTSettings]integersMinimum=-2147483645
+[SMTSettings]invariantForall=false
+[SMTSettings]UseBuiltUniqueness=false
+[SMTSettings]explicitTypeHierarchy=false
+[Strategy]ActiveStrategy=JavaCardDLStrategy
+[StrategyProperty]SPLITTING_OPTIONS_KEY=SPLITTING_DELAYED
+"
+}
+
+\javaSource "";
+
+
+
+\sorts{
+Heap;
+Update;
+HumanResources\extends java.lang.Object;
+Field;
+int;
+Formula;
+boolean;
+numbers;
+LocSet;
+java.lang.Throwable\extends java.io.Serializable, java.lang.Object;
+}
+
+\functions{
+Heap heapAtPre_A;
+Field HumanResources::$salaries;
+int[] int[]::select(Heap,java.lang.Object,Field);
+int length(java.lang.Object);
+int i_0_A_0;
+Formula leq(int,int);
+Formula wellFormed(Heap);
+Field java.lang.Object::<created>;
+boolean boolean::select(Heap,java.lang.Object,Field);
+boolean TRUE;
+boolean HumanResources::exactInstance(any);
+Heap anon_heap_LOOP;
+Formula geq(int,int);
+numbers #;
+numbers 0(numbers);
+int Z(numbers);
+LocSet empty;
+Heap anon(Heap,LocSet,Heap);
+Field arr(int);
+int int::select(Heap,java.lang.Object,Field);
+int bsum(int,int,int);
+int sum_1_0_A_0;
+numbers 1(numbers);
+Null null;
+int jdiv(int,int);
+Heap heapAtPost_A;
+Heap heapAtPre_B;
+int i_0_B_0;
+int sum_1_0_B_0;
+Heap heapAtPost_B;
+Formula java.lang.Object::<inv>(Heap,java.lang.Object);
+int javaCastInt(int);
+int javaDivInt(int,int);
+}
+
+\programVariables{
+Heap heap;
+HumanResources self_5_A;
+java.lang.Throwable exc_5_A;
+int result_5_A;
+HumanResources selfAtPost_5_A;
+int resultAtPost_5_A;
+java.lang.Throwable excAtPost_5_A;
+HumanResources self_5_B;
+java.lang.Throwable exc_5_B;
+int result_5_B;
+HumanResources selfAtPost_5_B;
+int resultAtPost_5_B;
+java.lang.Throwable excAtPost_5_B;
+}
+
+\rules{
+
+unfold_computed_formula_6_of_getAverageSalary_281125538 {
+  \schemaVar \term Heap sv_heapAtPre_A#1;
+  \schemaVar \term HumanResources sv_selfAtPost_5_A#3;
+  \schemaVar \term HumanResources sv_self_5_A#0;
+  \schemaVar \term int sv_resultAtPost_5_A#4;
+  \schemaVar \term java.lang.Throwable sv_excAtPost_5_A#5;
+  \schemaVar \term Heap sv_heapAtPost_A#6;
+  \schemaVar \term Heap sv_heapAtPre_B#8;
+  \schemaVar \term HumanResources sv_selfAtPost_5_B#10;
+  \schemaVar \term HumanResources sv_self_5_B#7;
+  \schemaVar \term int sv_resultAtPost_5_B#11;
+  \schemaVar \term java.lang.Throwable sv_excAtPost_5_B#12;
+  \schemaVar \term Heap sv_heapAtPost_B#13;
+  \schemaVar \variables int j#16;
+  
+  \find (
+      {heap:=sv_heapAtPre_A#1}
+        (  wellFormed(sv_heapAtPre_A#1)
+         & heap = sv_heapAtPre_A#1
+         & !sv_self_5_A#0 = null
+         &   boolean::select(heap, sv_self_5_A#0, java.lang.Object::<created>)
+           = TRUE
+         & HumanResources::exactInstance(sv_self_5_A#0) = TRUE
+         & java.lang.Object::<inv>(sv_heapAtPre_A#1, sv_self_5_A#0)
+         & \[{
+               exc_5_A=null;try {
+                 result_5_A=self_5_A.getAverageSalary()@HumanResources;
+               }   catch (java.lang.Throwable e) {
+                 exc_5_A=e;
+               }
+             }\] (  sv_selfAtPost_5_A#3 = sv_self_5_A#0
+                  & sv_resultAtPost_5_A#4 = result_5_A
+                  & sv_excAtPost_5_A#5 = exc_5_A
+                  & sv_heapAtPost_A#6 = heap))
+    & {heap:=sv_heapAtPre_B#8}
+        (  wellFormed(sv_heapAtPre_B#8)
+         & heap = sv_heapAtPre_B#8
+         & !sv_self_5_B#7 = null
+         &   boolean::select(heap, sv_self_5_B#7, java.lang.Object::<created>)
+           = TRUE
+         & HumanResources::exactInstance(sv_self_5_B#7) = TRUE
+         & java.lang.Object::<inv>(sv_heapAtPre_B#8, sv_self_5_B#7)
+         & \[{
+               exc_5_B=null;try {
+                 result_5_B=self_5_B.getAverageSalary()@HumanResources;
+               }   catch (java.lang.Throwable e) {
+                 exc_5_B=e;
+               }
+             }\] (  sv_selfAtPost_5_B#10 = sv_self_5_B#7
+                  & sv_resultAtPost_5_B#11 = result_5_B
+                  & sv_excAtPost_5_B#12 = exc_5_B
+                  & sv_heapAtPost_B#13 = heap))
+  )
+  \antecedentPolarity
+  \varcond (
+     \notFreeIn( j#16, sv_heapAtPost_B#13),
+     \notFreeIn( j#16, sv_excAtPost_5_B#12),
+     \notFreeIn( j#16, sv_resultAtPost_5_B#11),
+     \notFreeIn( j#16, sv_selfAtPost_5_B#10),
+     \notFreeIn( j#16, sv_self_5_B#7),
+     \notFreeIn( j#16, sv_heapAtPre_B#8),
+     \notFreeIn( j#16, sv_heapAtPost_A#6),
+     \notFreeIn( j#16, sv_excAtPost_5_A#5),
+     \notFreeIn( j#16, sv_resultAtPost_5_A#4),
+     \notFreeIn( j#16, sv_selfAtPost_5_A#3),
+     \notFreeIn( j#16, sv_self_5_A#0),
+     \notFreeIn( j#16, sv_heapAtPre_A#1)
+  )
+  \replacewith (
+        {heap:=sv_heapAtPre_A#1}
+          (  leq(length(int[]::select(heap,
+                                      sv_self_5_A#0,
+                                      HumanResources::$salaries)),
+                 i_0_A_0)
+           & wellFormed(sv_heapAtPre_A#1)
+           & sv_heapAtPre_A#1 = heap
+           &   boolean::select(heap, sv_self_5_A#0, java.lang.Object::<created>)
+             = TRUE
+           & HumanResources::exactInstance(sv_self_5_A#0) = TRUE
+           & wellFormed(anon_heap_LOOP<<anonHeapFunction>>)
+           &   length(int[]::select(heap,
+                                    sv_self_5_A#0,
+                                    HumanResources::$salaries))
+             = i_0_A_0
+           & geq(length(int[]::select(heap,
+                                      sv_self_5_A#0,
+                                      HumanResources::$salaries)),
+                 i_0_A_0)
+           &   bsum{j#16;}(Z(0(#)),
+                           i_0_A_0,
+                           int::select(anon(heap,
+                                            empty,
+                                            anon_heap_LOOP<<anonHeapFunction>>),
+                                       int[]::select(heap,
+                                                     sv_self_5_A#0,
+                                                     HumanResources::$salaries),
+                                       arr(j#16)))
+             = sum_1_0_A_0
+           & geq(i_0_A_0, Z(1(#)))
+           & geq(length(int[]::select(heap,
+                                      sv_self_5_A#0,
+                                      HumanResources::$salaries)),
+                 Z(1(#)))
+           & !  int[]::select(sv_heapAtPre_A#1,
+                              sv_self_5_A#0,
+                              HumanResources::$salaries)
+              = null
+           & !{exc_5_A:=null
+               || heap:=anon(heap, empty, anon_heap_LOOP<<anonHeapFunction>>)
+               || result_5_A:=jdiv(sum_1_0_A_0,
+                                   length(int[]::select(heap,
+                                                        sv_self_5_A#0,
+                                                        HumanResources::$salaries)))}
+                !(  sv_self_5_A#0 = sv_selfAtPost_5_A#3
+                  & result_5_A = sv_resultAtPost_5_A#4
+                  & exc_5_A = sv_excAtPost_5_A#5
+                  & sv_heapAtPost_A#6 = heap)
+           & !sv_self_5_A#0 = null)
+      & {heap:=sv_heapAtPre_B#8}
+          (  leq(length(int[]::select(heap,
+                                      sv_self_5_B#7,
+                                      HumanResources::$salaries)),
+                 i_0_B_0)
+           & wellFormed(sv_heapAtPre_B#8)
+           & sv_heapAtPre_B#8 = heap
+           &   boolean::select(heap, sv_self_5_B#7, java.lang.Object::<created>)
+             = TRUE
+           & HumanResources::exactInstance(sv_self_5_B#7) = TRUE
+           & wellFormed(anon_heap_LOOP<<anonHeapFunction>>)
+           &   length(int[]::select(heap,
+                                    sv_self_5_B#7,
+                                    HumanResources::$salaries))
+             = i_0_B_0
+           & geq(length(int[]::select(heap,
+                                      sv_self_5_B#7,
+                                      HumanResources::$salaries)),
+                 i_0_B_0)
+           &   bsum{j#16;}(Z(0(#)),
+                           i_0_B_0,
+                           int::select(anon(heap,
+                                            empty,
+                                            anon_heap_LOOP<<anonHeapFunction>>),
+                                       int[]::select(heap,
+                                                     sv_self_5_B#7,
+                                                     HumanResources::$salaries),
+                                       arr(j#16)))
+             = sum_1_0_B_0
+           & geq(i_0_B_0, Z(1(#)))
+           & geq(length(int[]::select(heap,
+                                      sv_self_5_B#7,
+                                      HumanResources::$salaries)),
+                 Z(1(#)))
+           & !  int[]::select(sv_heapAtPre_B#8,
+                              sv_self_5_B#7,
+                              HumanResources::$salaries)
+              = null
+           & !{exc_5_B:=null
+               || heap:=anon(heap, empty, anon_heap_LOOP<<anonHeapFunction>>)
+               || result_5_B:=jdiv(sum_1_0_B_0,
+                                   length(int[]::select(heap,
+                                                        sv_self_5_B#7,
+                                                        HumanResources::$salaries)))}
+                !(  sv_self_5_B#7 = sv_selfAtPost_5_B#10
+                  & result_5_B = sv_resultAtPost_5_B#11
+                  & exc_5_B = sv_excAtPost_5_B#12
+                  & sv_heapAtPost_B#13 = heap)
+           & !sv_self_5_B#7 = null)
+    | {heap:=sv_heapAtPre_A#1}
+        (  leq(length(int[]::select(heap,
+                                    sv_self_5_A#0,
+                                    HumanResources::$salaries)),
+               i_0_A_0)
+         & wellFormed(sv_heapAtPre_A#1)
+         & sv_heapAtPre_A#1 = heap
+         &   boolean::select(heap, sv_self_5_A#0, java.lang.Object::<created>)
+           = TRUE
+         & HumanResources::exactInstance(sv_self_5_A#0) = TRUE
+         & wellFormed(anon_heap_LOOP<<anonHeapFunction>>)
+         &   length(int[]::select(heap,
+                                  sv_self_5_A#0,
+                                  HumanResources::$salaries))
+           = i_0_A_0
+         & geq(length(int[]::select(heap,
+                                    sv_self_5_A#0,
+                                    HumanResources::$salaries)),
+               i_0_A_0)
+         &   bsum{j#16;}(Z(0(#)),
+                         i_0_A_0,
+                         int::select(anon(heap,
+                                          empty,
+                                          anon_heap_LOOP<<anonHeapFunction>>),
+                                     int[]::select(heap,
+                                                   sv_self_5_A#0,
+                                                   HumanResources::$salaries),
+                                     arr(j#16)))
+           = sum_1_0_A_0
+         & geq(i_0_A_0, Z(1(#)))
+         & geq(length(int[]::select(heap,
+                                    sv_self_5_A#0,
+                                    HumanResources::$salaries)),
+               Z(1(#)))
+         & !  int[]::select(sv_heapAtPre_A#1,
+                            sv_self_5_A#0,
+                            HumanResources::$salaries)
+            = null
+         & !{exc_5_A:=null
+             || heap:=anon(heap, empty, anon_heap_LOOP<<anonHeapFunction>>)
+             || result_5_A:=jdiv(sum_1_0_A_0,
+                                 length(int[]::select(heap,
+                                                      sv_self_5_A#0,
+                                                      HumanResources::$salaries)))}
+              !(  sv_self_5_A#0 = sv_selfAtPost_5_A#3
+                & result_5_A = sv_resultAtPost_5_A#4
+                & exc_5_A = sv_excAtPost_5_A#5
+                & sv_heapAtPost_A#6 = heap)
+         & !sv_self_5_A#0 = null)
+    & {heap:=sv_heapAtPre_B#8}
+        (    length(int[]::select(heap,
+                                  sv_self_5_B#7,
+                                  HumanResources::$salaries))
+           = Z(0(#))
+         & wellFormed(sv_heapAtPre_B#8)
+         & sv_heapAtPre_B#8 = heap
+         &   boolean::select(heap, sv_self_5_B#7, java.lang.Object::<created>)
+           = TRUE
+         & HumanResources::exactInstance(sv_self_5_B#7) = TRUE
+         & !  int[]::select(sv_heapAtPre_B#8,
+                            sv_self_5_B#7,
+                            HumanResources::$salaries)
+            = null
+         & !{exc_5_B:=null || result_5_B:=Z(0(#))}
+              !(  sv_self_5_B#7 = sv_selfAtPost_5_B#10
+                & result_5_B = sv_resultAtPost_5_B#11
+                & exc_5_B = sv_excAtPost_5_B#12
+                & sv_heapAtPost_B#13 = heap)
+         & !sv_self_5_B#7 = null)
+    | {heap:=sv_heapAtPre_A#1}
+        (    length(int[]::select(heap,
+                                  sv_self_5_A#0,
+                                  HumanResources::$salaries))
+           = Z(0(#))
+         & wellFormed(sv_heapAtPre_A#1)
+         & sv_heapAtPre_A#1 = heap
+         &   boolean::select(heap, sv_self_5_A#0, java.lang.Object::<created>)
+           = TRUE
+         & HumanResources::exactInstance(sv_self_5_A#0) = TRUE
+         & !  int[]::select(sv_heapAtPre_A#1,
+                            sv_self_5_A#0,
+                            HumanResources::$salaries)
+            = null
+         & !{exc_5_A:=null || result_5_A:=Z(0(#))}
+              !(  sv_self_5_A#0 = sv_selfAtPost_5_A#3
+                & result_5_A = sv_resultAtPost_5_A#4
+                & exc_5_A = sv_excAtPost_5_A#5
+                & sv_heapAtPost_A#6 = heap)
+         & !sv_self_5_A#0 = null)
+    & {heap:=sv_heapAtPre_B#8}
+        (    length(int[]::select(heap,
+                                  sv_self_5_B#7,
+                                  HumanResources::$salaries))
+           = Z(0(#))
+         & wellFormed(sv_heapAtPre_B#8)
+         & sv_heapAtPre_B#8 = heap
+         &   boolean::select(heap, sv_self_5_B#7, java.lang.Object::<created>)
+           = TRUE
+         & HumanResources::exactInstance(sv_self_5_B#7) = TRUE
+         & !  int[]::select(sv_heapAtPre_B#8,
+                            sv_self_5_B#7,
+                            HumanResources::$salaries)
+            = null
+         & !{exc_5_B:=null || result_5_B:=Z(0(#))}
+              !(  sv_self_5_B#7 = sv_selfAtPost_5_B#10
+                & result_5_B = sv_resultAtPost_5_B#11
+                & exc_5_B = sv_excAtPost_5_B#12
+                & sv_heapAtPost_B#13 = heap)
+         & !sv_self_5_B#7 = null)
+  )
+  \heuristics ( concrete )
+};
+}
+
+\problem {
+     {heap:=heapAtPre_A<<anonHeapFunction>>}
+       (  wellFormed(heapAtPre_A<<anonHeapFunction>>)
+        & heap = heapAtPre_A<<anonHeapFunction>>
+        & !self_5_A = null
+        &   boolean::select(heap,
+                            self_5_A,
+                            java.lang.Object::<created>)
+          = TRUE
+        &   HumanResources::exactInstance(self_5_A)
+          = TRUE
+        & java.lang.Object::<inv>(heapAtPre_A<<anonHeapFunction>>,
+                                  self_5_A)
+        & \[{
+              exc_5_A=null;try {
+                result_5_A=self_5_A.getAverageSalary()@HumanResources;
+              }   catch (java.lang.Throwable e) {
+                exc_5_A=e;
+              }
+            }\] (  selfAtPost_5_A = self_5_A
+                 & resultAtPost_5_A = result_5_A
+                 & excAtPost_5_A = exc_5_A
+                 & heapAtPost_A = heap))
+   & {heap:=heapAtPre_B<<anonHeapFunction>>}
+       (  wellFormed(heapAtPre_B<<anonHeapFunction>>)
+        & heap = heapAtPre_B<<anonHeapFunction>>
+        & !self_5_B = null
+        &   boolean::select(heap,
+                            self_5_B,
+                            java.lang.Object::<created>)
+          = TRUE
+        &   HumanResources::exactInstance(self_5_B)
+          = TRUE
+        & java.lang.Object::<inv>(heapAtPre_B<<anonHeapFunction>>,
+                                  self_5_B)
+        & \[{
+              exc_5_B=null;try {
+                result_5_B=self_5_B.getAverageSalary()@HumanResources;
+              }   catch (java.lang.Throwable e) {
+                exc_5_B=e;
+              }
+            }\] (  selfAtPost_5_B = self_5_B
+                 & resultAtPost_5_B = result_5_B
+                 & excAtPost_5_B = exc_5_B
+                 & heapAtPost_B = heap))
+->     javaDivInt(javaCastInt(bsum{int i;}(Z(0(#)),
+                                           length(int[]::select(heapAtPre_A<<anonHeapFunction>>,
+                                                                self_5_A,
+                                                                HumanResources::$salaries)),
+                                           int::select(heapAtPre_A<<anonHeapFunction>>,
+                                                       int[]::select(heapAtPre_A<<anonHeapFunction>>,
+                                                                     self_5_A,
+                                                                     HumanResources::$salaries),
+                                                       arr(i)))),
+                  length(int[]::select(heapAtPre_A<<anonHeapFunction>>,
+                                       self_5_A,
+                                       HumanResources::$salaries)))
+     = javaDivInt(javaCastInt(bsum{int i;}(Z(0(#)),
+                                           length(int[]::select(heapAtPre_B<<anonHeapFunction>>,
+                                                                self_5_B,
+                                                                HumanResources::$salaries)),
+                                           int::select(heapAtPre_B<<anonHeapFunction>>,
+                                                       int[]::select(heapAtPre_B<<anonHeapFunction>>,
+                                                                     self_5_B,
+                                                                     HumanResources::$salaries),
+                                                       arr(i)))),
+                  length(int[]::select(heapAtPre_B<<anonHeapFunction>>,
+                                       self_5_B,
+                                       HumanResources::$salaries)))
+   & (      length(int[]::select(heapAtPre_A<<anonHeapFunction>>,
+                                 self_5_A,
+                                 HumanResources::$salaries))
+          = Z(0(#))
+      <->   length(int[]::select(heapAtPre_B<<anonHeapFunction>>,
+                                 self_5_B,
+                                 HumanResources::$salaries))
+          = Z(0(#)))
+-> (resultAtPost_5_A = resultAtPost_5_B)<<postCondition>>
+
+}
+
+\proof {
+(keyLog "0" (keyUser "mihai" ) (keyVersion "90dde5a1f3b2857ec76a728ce080f1a88f0e4aa7"))
+
+(autoModeTime "1183")
+
+(branch "dummy ID"
+(rule "unfold_computed_formula_6_of_getAverageSalary_281125538" (formula "1") (term "0") (inst "j#16=j#16"))
+(rule "impRight" (formula "1"))
+(rule "impRight" (formula "2"))
+(rule "andLeft" (formula "1"))
+(rule "orLeft" (formula "3"))
+(branch " {heap:=heapAtPre_A«anonHeapFunction»} ( self_5_A.salaries.length ≤ i_0_A_0 ∧ wellFormed(heapAtPre_A«anonHeapFunction») ∧ heapAtPre_A«anonHeapFunction» = heap ∧ self_5_A.<created> = TRUE ∧ HumanResources::exactInstance(self_5_A) = TRUE ∧ wellFormed(anon_heap_LOOP«anonHeapFunction») ∧ self_5_A.salaries.length = i_0_A_0 ∧ self_5_A.salaries.length ≥ i_0_A_0 ∧ bsum{int j#16;}(0, i_0_A_0, (self_5_A.salaries@heap)[j#16]@heap[anon(∅)]) = sum_1_0_A_0 ∧ i_0_A_0 ≥ 1 ∧ self_5_A.salaries.length ≥ 1 ∧ ¬ self_5_A.salaries@heapAtPre_A«anonHeapFunction» = null ∧ ¬{exc_5_A:=null || heap:=heap[anon(∅)] || result_5_A:=jdiv(sum_1_0_A_0, self_5_A.salaries.length)} ¬( self_5_A = selfAtPost_5_A ∧ result_5_A = resultAtPost_5_A ∧ exc_5_A = excAtPost_5_A ∧ heapAtPost_A = heap) ∧ ¬self_5_A = null) ∧ {heap:=heapAtPre_B«anonHeapFunction»} ( self_5_B.salaries.length ≤ i_0_B_0 ∧ wellFormed(heapAtPre_B«anonHeapFunction») ∧ heapAtPre_B«anonHeapFunction» = heap ∧ self_5_B.<created> = TRUE ∧ HumanResources::exactInstance(self_5_B) = TRUE ∧ wellFormed(anon_heap_LOOP«anonHeapFunction») ∧ self_5_B.salaries.length = i_0_B_0 ∧ self_5_B.salaries.length ≥ i_0_B_0 ∧ bsum{int j#16;}(0, i_0_B_0, (self_5_B.salaries@heap)[j#16]@heap[anon(∅)]) = sum_1_0_B_0 ∧ i_0_B_0 ≥ 1 ∧ self_5_B.salaries.length ≥ 1 ∧ ¬ self_5_B.salaries@heapAtPre_B«anonHeapFunction» = null ∧ ¬{exc_5_B:=null || heap:=heap[anon(∅)] || result_5_B:=jdiv(sum_1_0_B_0, self_5_B.salaries.length)} ¬( self_5_B = selfAtPost_5_B ∧ result_5_B = resultAtPost_5_B ∧ exc_5_B = excAtPost_5_B ∧ heapAtPost_B = heap) ∧ ¬self_5_B = null) ∨ {heap:=heapAtPre_A«anonHeapFunction»} ( self_5_A.salaries.length ≤ i_0_A_0 ∧ wellFormed(heapAtPre_A«anonHeapFunction») ∧ heapAtPre_A«anonHeapFunction» = heap ∧ self_5_A.<created> = TRUE ∧ HumanResources::exactInstance(self_5_A) = TRUE ∧ wellFormed(anon_heap_LOOP«anonHeapFunction») ∧ self_5_A.salaries.length = i_0_A_0 ∧ self_5_A.salaries.length ≥ i_0_A_0 ∧ bsum{int j#16;}(0, i_0_A_0, (self_5_A.salaries@heap)[j#16]@heap[anon(∅)]) = sum_1_0_A_0 ∧ i_0_A_0 ≥ 1 ∧ self_5_A.salaries.length ≥ 1 ∧ ¬ self_5_A.salaries@heapAtPre_A«anonHeapFunction» = null ∧ ¬{exc_5_A:=null || heap:=heap[anon(∅)] || result_5_A:=jdiv(sum_1_0_A_0, self_5_A.salaries.length)} ¬( self_5_A = selfAtPost_5_A ∧ result_5_A = resultAtPost_5_A ∧ exc_5_A = excAtPost_5_A ∧ heapAtPost_A = heap) ∧ ¬self_5_A = null) ∧ {heap:=heapAtPre_B«anonHeapFunction»} ( self_5_B.salaries.length = 0 ∧ wellFormed(heapAtPre_B«anonHeapFunction») ∧ heapAtPre_B«anonHeapFunction» = heap ∧ self_5_B.<created> = TRUE ∧ HumanResources::exactInstance(self_5_B) = TRUE ∧ ¬ self_5_B.salaries@heapAtPre_B«anonHeapFunction» = null ∧ ¬{exc_5_B:=null || result_5_B:=0} ¬( self_5_B = selfAtPost_5_B ∧ result_5_B = resultAtPost_5_B ∧ exc_5_B = excAtPost_5_B ∧ heapAtPost_B = heap) ∧ ¬self_5_B = null)"
+   (rule "orLeft" (formula "3"))
+   (branch " {heap:=heapAtPre_A«anonHeapFunction»} ( self_5_A.salaries.length ≤ i_0_A_0 ∧ wellFormed(heapAtPre_A«anonHeapFunction») ∧ heapAtPre_A«anonHeapFunction» = heap ∧ self_5_A.<created> = TRUE ∧ HumanResources::exactInstance(self_5_A) = TRUE ∧ wellFormed(anon_heap_LOOP«anonHeapFunction») ∧ self_5_A.salaries.length = i_0_A_0 ∧ self_5_A.salaries.length ≥ i_0_A_0 ∧ bsum{int j#16;}(0, i_0_A_0, (self_5_A.salaries@heap)[j#16]@heap[anon(∅)]) = sum_1_0_A_0 ∧ i_0_A_0 ≥ 1 ∧ self_5_A.salaries.length ≥ 1 ∧ ¬ self_5_A.salaries@heapAtPre_A«anonHeapFunction» = null ∧ ¬{exc_5_A:=null || heap:=heap[anon(∅)] || result_5_A:=jdiv(sum_1_0_A_0, self_5_A.salaries.length)} ¬( self_5_A = selfAtPost_5_A ∧ result_5_A = resultAtPost_5_A ∧ exc_5_A = excAtPost_5_A ∧ heapAtPost_A = heap) ∧ ¬self_5_A = null) ∧ {heap:=heapAtPre_B«anonHeapFunction»} ( self_5_B.salaries.length ≤ i_0_B_0 ∧ wellFormed(heapAtPre_B«anonHeapFunction») ∧ heapAtPre_B«anonHeapFunction» = heap ∧ self_5_B.<created> = TRUE ∧ HumanResources::exactInstance(self_5_B) = TRUE ∧ wellFormed(anon_heap_LOOP«anonHeapFunction») ∧ self_5_B.salaries.length = i_0_B_0 ∧ self_5_B.salaries.length ≥ i_0_B_0 ∧ bsum{int j#16;}(0, i_0_B_0, (self_5_B.salaries@heap)[j#16]@heap[anon(∅)]) = sum_1_0_B_0 ∧ i_0_B_0 ≥ 1 ∧ self_5_B.salaries.length ≥ 1 ∧ ¬ self_5_B.salaries@heapAtPre_B«anonHeapFunction» = null ∧ ¬{exc_5_B:=null || heap:=heap[anon(∅)] || result_5_B:=jdiv(sum_1_0_B_0, self_5_B.salaries.length)} ¬( self_5_B = selfAtPost_5_B ∧ result_5_B = resultAtPost_5_B ∧ exc_5_B = excAtPost_5_B ∧ heapAtPost_B = heap) ∧ ¬self_5_B = null)"
+      (rule "andLeft" (formula "3"))
+      (builtin "One Step Simplification" (formula "4"))
+      (builtin "One Step Simplification" (formula "3"))
+      (rule "andLeft" (formula "4"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "5"))
+      (rule "notLeft" (formula "7"))
+      (rule "andLeft" (formula "3"))
+      (rule "notLeft" (formula "5"))
+      (rule "andLeft" (formula "6"))
+      (rule "andLeft" (formula "5"))
+      (rule "andLeft" (formula "4"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "9"))
+      (rule "andLeft" (formula "7"))
+      (rule "notLeft" (formula "9"))
+      (rule "andLeft" (formula "5"))
+      (rule "notLeft" (formula "4"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "10"))
+      (rule "andLeft" (formula "8"))
+      (rule "andLeft" (formula "5"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "10"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "11"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "12"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "13"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "13"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "14"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "15"))
+      (rule "andLeft" (formula "3"))
+      (rule "applyEqReverse" (formula "34") (term "0") (ifseqformula "13") (userinteraction))
+      (rule "applyEqReverse" (formula "34") (term "1") (ifseqformula "27") (userinteraction))
+      (rule "translateJavaDivInt" (formula "1") (term "0") (userinteraction))
+      (rule "translateJavaCastInt" (formula "1") (term "0,0") (userinteraction))
+      (rule "translateJavaDivInt" (formula "1") (term "1") (userinteraction))
+      (rule "translateJavaCastInt" (formula "1") (term "0,1") (userinteraction))
+      (rule "equiv_left" (formula "2") (userinteraction))
+      (branch "Case 1"
+         (rule "eqSymm" (formula "16"))
+         (rule "eqSymm" (formula "30"))
+         (rule "eqSymm" (formula "29"))
+         (rule "eqSymm" (formula "35"))
+         (rule "eqSymm" (formula "15"))
+         (rule "eqSymm" (formula "1"))
+         (rule "applyEq" (formula "1") (term "1,0") (ifseqformula "22"))
+         (rule "applyEq" (formula "1") (term "1,1,2,0,1") (ifseqformula "13"))
+         (rule "applyEq" (formula "1") (term "1,0,0") (ifseqformula "3"))
+         (rule "bsum_lower_equals_upper" (formula "1") (term "0,0"))
+         (rule "eqSymm" (formula "1"))
+         (rule "applyEq" (formula "8") (term "0") (ifseqformula "2"))
+         (rule "eqSymm" (formula "8"))
+         (rule "applyEq" (formula "22") (term "1,0,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "35") (term "1,0") (ifseqformula "3"))
+         (rule "eqSymm" (formula "35"))
+         (rule "applyEq" (formula "26") (term "1,0,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "6") (term "1,0") (ifseqformula "13"))
+         (rule "applyEq" (formula "10") (term "0,2,0") (ifseqformula "16"))
+         (rule "applyEq" (formula "20") (term "0,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "4") (term "0") (ifseqformula "2"))
+         (rule "inEqSimp_commuteLeq" (formula "4"))
+         (rule "applyEq" (formula "34") (term "0") (ifseqformula "27"))
+         (rule "applyEq" (formula "19") (term "1,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "33") (term "0") (ifseqformula "13"))
+         (rule "applyEq" (formula "17") (term "1,0,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "7") (term "0,0") (ifseqformula "13"))
+         (rule "applyEq" (formula "14") (term "1,0,1,0") (ifseqformula "13"))
+         (rule "applyEq" (formula "3") (term "1,0,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "9") (term "0") (ifseqformula "2"))
+         (rule "inEqSimp_commuteGeq" (formula "9"))
+         (rule "applyEq" (formula "28") (term "1,0,1,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "32") (term "1,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "10") (term "1,1,2,0") (ifseqformula "13"))
+         (rule "applyEq" (formula "23") (term "1,0,0") (ifseqformula "27"))
+         (rule "applyEq" (formula "12") (term "0") (ifseqformula "2"))
+         (rule "qeq_literals" (formula "12"))
+         (rule "closeFalse" (formula "12"))
+      )
+      (branch
+         (rule "pullOut" (formula "1") (term "0,0") (inst "sk=bsum_2") (userinteraction))
+         (rule "pullOut" (formula "2") (term "0,1") (inst "sk=bsum_3") (userinteraction))
+         (rule "applyEqReverse" (formula "37") (term "0,0") (ifseqformula "10") (userinteraction))
+         (rule "applyEqReverse" (formula "37") (term "1,0,0") (ifseqformula "8") (userinteraction))
+         (rule "pullOut" (formula "37") (term "0,0") (inst "sk=bsum_4") (userinteraction))
+         (rule "applyEqReverse" (formula "38") (term "0,1") (ifseqformula "25") (userinteraction))
+         (rule "applyEqReverse" (formula "38") (term "1,0,1") (ifseqformula "23") (userinteraction))
+         (rule "pullOut" (formula "38") (term "0,1") (inst "sk=bsum_5") (userinteraction))
+         (rule "cut" (inst "cutFormula=bsum_2 = bsum_4") (userinteraction))
+         (branch "CUT: bsum_2 = bsum_4 TRUE"
+            (rule "cut" (inst "cutFormula=bsum_3 = bsum_5") (userinteraction))
+            (branch "CUT: bsum_3 = bsum_5 TRUE"
+               (rule "eqSymm" (formula "7"))
+               (rule "eqSymm" (formula "41"))
+               (rule "eqSymm" (formula "2"))
+               (rule "eqSymm" (formula "33"))
+               (rule "eqSymm" (formula "1"))
+               (rule "eqSymm" (formula "34"))
+               (rule "eqSymm" (formula "19"))
+               (rule "eqSymm" (formula "20"))
+               (rule "applyEq" (formula "8") (term "1,0,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "3") (term "0,2,0") (ifseqformula "34"))
+               (rule "applyEq" (formula "12") (term "1,0,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "28") (term "1,1,2,0") (ifseqformula "31"))
+               (rule "applyEq" (formula "41") (term "0,0") (ifseqformula "1"))
+               (rule "applyEq" (formula "4") (term "1,0,1,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "6") (term "1,0") (ifseqformula "26"))
+               (rule "applyEqRigid" (formula "28") (term "0,2,0") (ifseqformula "34"))
+               (rule "applyEq" (formula "36") (term "1,0,0") (ifseqformula "31"))
+               (rule "applyEq" (formula "30") (term "1,0,0") (ifseqformula "31"))
+               (rule "applyEq" (formula "38") (term "1,0") (ifseqformula "31"))
+               (rule "applyEq" (formula "18") (term "1,0,1,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "5") (term "1,1,2,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "13") (term "1,0,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "21") (term "0") (ifseqformula "26"))
+               (rule "inEqSimp_homoInEq0" (formula "21"))
+               (rule "polySimp_pullOutFactor1" (formula "21") (term "0"))
+               (rule "add_literals" (formula "21") (term "1,0"))
+               (rule "times_zero_1" (formula "21") (term "0"))
+               (rule "qeq_literals" (formula "21"))
+               (rule "true_left" (formula "21"))
+               (rule "applyEq" (formula "3") (term "1,0") (ifseqformula "25"))
+               (rule "applyEq" (formula "40") (term "1,0,1,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "10") (term "1,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "7") (term "1,0,1,1") (ifseqformula "17"))
+               (rule "applyEqRigid" (formula "14") (term "0,2,0") (ifseqformula "20"))
+               (rule "applyEq" (formula "5") (term "1,0,1,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "31") (term "1,0") (ifseqformula "25"))
+               (rule "applyEq" (formula "7") (term "1,0,1,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "11") (term "0,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "23") (term "0,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "34") (term "1,0,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "26") (term "1,0,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "4") (term "0,2,0") (ifseqformula "20"))
+               (rule "applyEq" (formula "4") (term "1,1,2,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "25") (term "1,0,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "36") (term "1,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "39") (term "0") (ifseqformula "30"))
+               (rule "applyEq" (formula "40") (term "1,0,1,1") (ifseqformula "17"))
+               (rule "applyEq" (formula "3") (term "1,1,2,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "14") (term "1,1,2,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "6") (term "1,1,2,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "16") (term "1,0,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "22") (term "1,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "38") (term "0") (ifseqformula "17"))
+               (rule "applyEq" (formula "4") (term "1") (ifseqformula "2"))
+               (rule "applyEq" (formula "40") (term "0,1") (ifseqformula "2"))
+               (rule "close" (formula "40") (ifseqformula "7"))
+            )
+            (branch "CUT: bsum_3 = bsum_5 FALSE"
+               (rule "eqSymm" (formula "34"))
+               (rule "eqSymm" (formula "6"))
+               (rule "eqSymm" (formula "41"))
+               (rule "eqSymm" (formula "18"))
+               (rule "eqSymm" (formula "1"))
+               (rule "eqSymm" (formula "32"))
+               (rule "eqSymm" (formula "33"))
+               (rule "eqSymm" (formula "19"))
+               (rule "applyEq" (formula "15") (term "0") (ifseqformula "11"))
+               (rule "applyEq" (formula "6") (term "1,0,1,0") (ifseqformula "29"))
+               (rule "applyEq" (formula "3") (term "1,0") (ifseqformula "11"))
+               (rule "applyEq" (formula "30") (term "1,0") (ifseqformula "24"))
+               (rule "applyEq" (formula "34") (term "1,0,0") (ifseqformula "15"))
+               (rule "applyEq" (formula "12") (term "1,0,0") (ifseqformula "15"))
+               (rule "applyEq" (formula "4") (term "1,0,1,0") (ifseqformula "15"))
+               (rule "applyEq" (formula "19") (term "0") (ifseqformula "24"))
+               (rule "inEqSimp_homoInEq0" (formula "19"))
+               (rule "polySimp_pullOutFactor1" (formula "19") (term "0"))
+               (rule "add_literals" (formula "19") (term "1,0"))
+               (rule "times_zero_1" (formula "19") (term "0"))
+               (rule "qeq_literals" (formula "19"))
+               (rule "true_left" (formula "19"))
+               (rule "applyEq" (formula "24") (term "1,0,0") (ifseqformula "28"))
+               (rule "applyEq" (formula "9") (term "1,0") (ifseqformula "15"))
+               (rule "applyEq" (formula "5") (term "1,1,2,0") (ifseqformula "28"))
+               (rule "applyEq" (formula "25") (term "0,2,0") (ifseqformula "31"))
+               (rule "applyEq" (formula "7") (term "0") (ifseqformula "11"))
+               (rule "inEqSimp_homoInEq0" (formula "7"))
+               (rule "polySimp_pullOutFactor1" (formula "7") (term "0"))
+               (rule "add_literals" (formula "7") (term "1,0"))
+               (rule "times_zero_1" (formula "7") (term "0"))
+               (rule "qeq_literals" (formula "7"))
+               (rule "true_left" (formula "7"))
+               (rule "applyEq" (formula "35") (term "1,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "3") (term "0,2,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "37") (term "0") (ifseqformula "27"))
+               (rule "applyEq" (formula "38") (term "1,0,1,1") (ifseqformula "14"))
+               (rule "applyEq" (formula "38") (term "1,0") (ifseqformula "22"))
+               (rule "eqSymm" (formula "38"))
+               (rule "applyEq" (formula "12") (term "1,1,2,0") (ifseqformula "14"))
+               (rule "applyEq" (formula "20") (term "0,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "15") (term "1,0,1,0") (ifseqformula "14"))
+               (rule "applyEq" (formula "12") (term "0,2,0") (ifseqformula "17"))
+               (rule "applyEq" (formula "10") (term "1,0,0") (ifseqformula "14"))
+               (rule "applyEq" (formula "3") (term "1,1,2,0") (ifseqformula "14"))
+               (rule "applyEq" (formula "2") (term "1,1,2,0") (ifseqformula "27"))
+               (rule "applyEqRigid" (formula "2") (term "0,2,0") (ifseqformula "30"))
+               (rule "applyEq" (formula "22") (term "1,0,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "4") (term "1,1,2,0") (ifseqformula "14"))
+               (rule "applyEq" (formula "5") (term "1,0,1,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "6") (term "1,0,1,1") (ifseqformula "14"))
+               (rule "applyEq" (formula "9") (term "0,0") (ifseqformula "14"))
+               (rule "applyEq" (formula "19") (term "1,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "26") (term "1,0,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "2") (term "1,0,1,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "33") (term "1,0,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "34") (term "1,0") (ifseqformula "14"))
+               (rule "applyEq" (formula "36") (term "0") (ifseqformula "14"))
+               (rule "applyEq" (formula "24") (term "1,1,2,0") (ifseqformula "27"))
+               (rule "applyEq" (formula "3") (term "1") (ifseqformula "1"))
+               (rule "applyEq" (formula "32") (term "0") (ifseqformula "10"))
+               (rule "applyEq" (formula "6") (term "1,0") (ifseqformula "22"))
+               (rule "eqSymm" (formula "6"))
+               (rule "applyEq" (formula "5") (term "1,0") (ifseqformula "22"))
+               (rule "applyEq" (formula "33") (term "0") (ifseqformula "22"))
+               (rule "applyEq" (formula "2") (term "1,0") (ifseqformula "22"))
+               (rule "applyEqRigid" (formula "38") (term "0,0") (ifseqformula "1"))
+               (rule "applyEq" (formula "26") (term "0") (ifseqformula "22"))
+               (rule "applyEq" (formula "23") (term "0") (ifseqformula "22"))
+               (rule "inEqSimp_homoInEq1" (formula "23"))
+               (rule "polySimp_pullOutFactor1" (formula "23") (term "0"))
+               (rule "add_literals" (formula "23") (term "1,0"))
+               (rule "times_zero_1" (formula "23") (term "0"))
+               (rule "leq_literals" (formula "23"))
+               (rule "true_left" (formula "23"))
+               (rule "applyEq" (formula "4") (term "1,0") (ifseqformula "10"))
+               (rule "applyEq" (formula "36") (term "1,0") (ifseqformula "10"))
+               (rule "eqSymm" (formula "36"))
+               (rule "applyEq" (formula "11") (term "0") (ifseqformula "10"))
+               (rule "inEqSimp_homoInEq1" (formula "11"))
+               (rule "polySimp_pullOutFactor1" (formula "11") (term "0"))
+               (rule "add_literals" (formula "11") (term "1,0"))
+               (rule "times_zero_1" (formula "11") (term "0"))
+               (rule "leq_literals" (formula "11"))
+               (rule "true_left" (formula "11"))
+               (rule "applyEq" (formula "14") (term "1,0") (ifseqformula "10"))
+               (rule "applyEq" (formula "6") (term "1,0") (ifseqformula "10"))
+               (rule "eqSymm" (formula "6"))
+               (rule "inEqSimp_contradEq7" (formula "29") (ifseqformula "12"))
+               (rule "times_zero_1" (formula "29") (term "1,0,0"))
+               (rule "add_zero_right" (formula "29") (term "0,0"))
+               (rule "leq_literals" (formula "29") (term "0"))
+               (builtin "One Step Simplification" (formula "29"))
+               (rule "false_right" (formula "29"))
+               (rule "inEqSimp_contradEq7" (formula "29") (ifseqformula "23"))
+               (rule "times_zero_1" (formula "29") (term "1,0,0"))
+               (rule "add_zero_right" (formula "29") (term "0,0"))
+               (rule "leq_literals" (formula "29") (term "0"))
+               (builtin "One Step Simplification" (formula "29"))
+               (rule "false_right" (formula "29"))
+               (rule "equal_bsum3" (formula "28") (ifseqformula "5") (ifseqformula "2"))
+               (rule "allRight" (formula "28") (inst "sk=i_1"))
+               (rule "impRight" (formula "28"))
+               (rule "andLeft" (formula "1"))
+               (rule "eqSymm" (formula "30"))
+               (rule "inEqSimp_ltToLeq" (formula "2"))
+               (rule "polySimp_mulComm0" (formula "2") (term "1,0,0"))
+               (rule "inEqSimp_sepPosMonomial0" (formula "2"))
+               (rule "polySimp_mulComm0" (formula "2") (term "1"))
+               (rule "polySimp_rightDist" (formula "2") (term "1"))
+               (rule "polySimp_mulLiterals" (formula "2") (term "1,1"))
+               (rule "mul_literals" (formula "2") (term "0,1"))
+               (rule "polySimp_elimOne" (formula "2") (term "1,1"))
+               (rule "pullOutSelect" (formula "30") (term "0") (inst "selectSK=arr_1"))
+               (rule "simplifySelectOfAnonEQ" (formula "1") (ifseqformula "30"))
+               (builtin "One Step Simplification" (formula "1") (ifInst ""  (formula "34")))
+               (rule "eqSymm" (formula "31"))
+               (rule "ifthenelse_negated" (formula "1") (term "0"))
+               (rule "inEqSimp_exactShadow3" (formula "2") (ifseqformula "3"))
+               (rule "times_zero_1" (formula "2") (term "0,0"))
+               (rule "add_zero_left" (formula "2") (term "0"))
+               (rule "inEqSimp_sepPosMonomial1" (formula "2"))
+               (rule "mul_literals" (formula "2") (term "1"))
+               (rule "ifthenelse_split" (formula "1") (term "0"))
+               (branch " selfAtPost_5_B.salaries.<created>@heapAtPre_B«anonHeapFunction» = TRUE TRUE"
+                  (rule "close" (formula "32") (ifseqformula "2"))
+               )
+               (branch " selfAtPost_5_B.salaries.<created>@heapAtPre_B«anonHeapFunction» = TRUE FALSE"
+                  (rule "referencedObjectIsCreatedRight" (formula "31") (ifseqformula "35"))
+                  (rule "close" (formula "31") (ifseqformula "20"))
+               )
+            )
+         )
+         (branch "CUT: bsum_2 = bsum_4 FALSE"
+            (rule "hide_right" (formula "40") (userinteraction))
+            (rule "eqSymm" (formula "32"))
+            (rule "eqSymm" (formula "17"))
+            (rule "eqSymm" (formula "31"))
+            (rule "eqSymm" (formula "5"))
+            (rule "eqSymm" (formula "33"))
+            (rule "eqSymm" (formula "18"))
+            (rule "applyEq" (formula "28") (term "0") (ifseqformula "24"))
+            (rule "applyEq" (formula "12") (term "1,1,2,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "8") (term "1,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "4") (term "1,0") (ifseqformula "24"))
+            (rule "applyEq" (formula "11") (term "1,0,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "3") (term "1,0") (ifseqformula "10"))
+            (rule "applyEq" (formula "5") (term "1,0,1,0") (ifseqformula "28"))
+            (rule "applyEqRigid" (formula "2") (term "0,2,0") (ifseqformula "18"))
+            (rule "applyEq" (formula "5") (term "1,0,1,1") (ifseqformula "15"))
+            (rule "applyEq" (formula "24") (term "1,0,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "1") (term "1,0,1,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "19") (term "1,0,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "9") (term "0,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "33") (term "1,0,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "26") (term "1,1,2,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "38") (term "0") (ifseqformula "28"))
+            (rule "applyEqRigid" (formula "1") (term "0,2,0") (ifseqformula "31"))
+            (rule "applyEq" (formula "37") (term "0") (ifseqformula "15"))
+            (rule "applyEq" (formula "12") (term "0,2,0") (ifseqformula "18"))
+            (rule "applyEq" (formula "6") (term "1,0,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "16") (term "1,0") (ifseqformula "10"))
+            (rule "applyEqRigid" (formula "26") (term "0,2,0") (ifseqformula "31"))
+            (rule "applyEq" (formula "34") (term "1,0,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "2") (term "1,1,2,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "10") (term "1,0,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "29") (term "1,0,1,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "25") (term "1,0,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "35") (term "1,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "1") (term "1,1,2,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "4") (term "1,1,2,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "22") (term "0,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "21") (term "1,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "2") (term "1,0,1,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "36") (term "1,0") (ifseqformula "28"))
+            (rule "applyEq" (formula "3") (term "1,1,2,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "14") (term "1,0,0") (ifseqformula "15"))
+            (rule "applyEq" (formula "14") (term "0") (ifseqformula "10"))
+            (rule "applyEq" (formula "18") (term "0") (ifseqformula "23"))
+            (rule "inEqSimp_homoInEq0" (formula "18"))
+            (rule "polySimp_pullOutFactor1" (formula "18") (term "0"))
+            (rule "add_literals" (formula "18") (term "1,0"))
+            (rule "times_zero_1" (formula "18") (term "0"))
+            (rule "qeq_literals" (formula "18"))
+            (rule "true_left" (formula "18"))
+            (rule "applyEq" (formula "2") (term "1,0") (ifseqformula "10"))
+            (rule "applyEq" (formula "23") (term "0") (ifseqformula "22"))
+            (rule "inEqSimp_homoInEq1" (formula "23"))
+            (rule "polySimp_pullOutFactor1" (formula "23") (term "0"))
+            (rule "add_literals" (formula "23") (term "1,0"))
+            (rule "times_zero_1" (formula "23") (term "0"))
+            (rule "leq_literals" (formula "23"))
+            (rule "true_left" (formula "23"))
+            (rule "applyEq" (formula "31") (term "0") (ifseqformula "22"))
+            (rule "applyEq" (formula "5") (term "1,0") (ifseqformula "22"))
+            (rule "eqSymm" (formula "5"))
+            (rule "applyEq" (formula "11") (term "0") (ifseqformula "10"))
+            (rule "inEqSimp_homoInEq1" (formula "11"))
+            (rule "polySimp_pullOutFactor1" (formula "11") (term "0"))
+            (rule "add_literals" (formula "11") (term "1,0"))
+            (rule "times_zero_1" (formula "11") (term "0"))
+            (rule "leq_literals" (formula "11"))
+            (rule "true_left" (formula "11"))
+            (rule "applyEq" (formula "25") (term "1,0") (ifseqformula "21"))
+            (rule "applyEq" (formula "29") (term "0") (ifseqformula "10"))
+            (rule "applyEq" (formula "6") (term "0") (ifseqformula "10"))
+            (rule "inEqSimp_homoInEq0" (formula "6"))
+            (rule "polySimp_pullOutFactor1" (formula "6") (term "0"))
+            (rule "add_literals" (formula "6") (term "1,0"))
+            (rule "times_zero_1" (formula "6") (term "0"))
+            (rule "qeq_literals" (formula "6"))
+            (rule "true_left" (formula "6"))
+            (rule "applyEq" (formula "1") (term "1,0") (ifseqformula "20"))
+            (rule "applyEq" (formula "5") (term "1,0") (ifseqformula "9"))
+            (rule "eqSymm" (formula "5"))
+            (rule "inEqSimp_contradEq7" (formula "29") (ifseqformula "22"))
+            (rule "times_zero_1" (formula "29") (term "1,0,0"))
+            (rule "add_literals" (formula "29") (term "0,0"))
+            (rule "leq_literals" (formula "29") (term "0"))
+            (builtin "One Step Simplification" (formula "29"))
+            (rule "false_right" (formula "29"))
+            (rule "inEqSimp_contradEq7" (formula "28") (ifseqformula "11"))
+            (rule "times_zero_1" (formula "28") (term "1,0,0"))
+            (rule "add_zero_right" (formula "28") (term "0,0"))
+            (rule "leq_literals" (formula "28") (term "0"))
+            (builtin "One Step Simplification" (formula "28"))
+            (rule "false_right" (formula "28"))
+            (rule "equal_bsum3" (formula "27") (ifseqformula "3") (ifseqformula "2"))
+            (rule "allRight" (formula "27") (inst "sk=i_0"))
+            (rule "impRight" (formula "27"))
+            (rule "andLeft" (formula "1"))
+            (rule "eqSymm" (formula "29"))
+            (rule "inEqSimp_ltToLeq" (formula "2"))
+            (rule "polySimp_mulComm0" (formula "2") (term "1,0,0"))
+            (rule "polySimp_addComm1" (formula "2") (term "0"))
+            (rule "inEqSimp_sepNegMonomial0" (formula "2"))
+            (rule "polySimp_mulLiterals" (formula "2") (term "0"))
+            (rule "polySimp_elimOne" (formula "2") (term "0"))
+            (rule "pullOutSelect" (formula "29") (term "0") (inst "selectSK=arr_0"))
+            (rule "simplifySelectOfAnonEQ" (formula "1") (ifseqformula "18"))
+            (builtin "One Step Simplification" (formula "1") (ifInst ""  (formula "32")))
+            (rule "eqSymm" (formula "30"))
+            (rule "ifthenelse_negated" (formula "1") (term "0"))
+            (rule "arrayLengthNotNegative" (formula "23") (term "0"))
+            (rule "applyEq" (formula "23") (term "0") (ifseqformula "24"))
+            (rule "inEqSimp_subsumption1" (formula "23") (ifseqformula "26"))
+            (rule "leq_literals" (formula "23") (term "0"))
+            (builtin "One Step Simplification" (formula "23"))
+            (rule "true_left" (formula "23"))
+            (rule "arrayLengthIsAShort" (formula "23") (term "0"))
+            (builtin "One Step Simplification" (formula "23"))
+            (rule "true_left" (formula "23"))
+            (rule "arrayLengthNotNegative" (formula "12") (term "0"))
+            (rule "applyEq" (formula "12") (term "0") (ifseqformula "13"))
+            (rule "inEqSimp_subsumption1" (formula "12") (ifseqformula "15"))
+            (rule "leq_literals" (formula "12") (term "0"))
+            (builtin "One Step Simplification" (formula "12"))
+            (rule "true_left" (formula "12"))
+            (rule "arrayLengthIsAShort" (formula "12") (term "0"))
+            (builtin "One Step Simplification" (formula "12"))
+            (rule "true_left" (formula "12"))
+            (rule "ifthenelse_split" (formula "1") (term "0"))
+            (branch " selfAtPost_5_A.salaries.<created>@heapAtPre_A«anonHeapFunction» = TRUE TRUE"
+               (rule "close" (formula "31") (ifseqformula "2"))
+            )
+            (branch " selfAtPost_5_A.salaries.<created>@heapAtPre_A«anonHeapFunction» = TRUE FALSE"
+               (rule "referencedObjectIsCreatedRight" (formula "30") (ifseqformula "33"))
+               (rule "close" (formula "30") (ifseqformula "9"))
+            )
+         )
+      )
+   )
+   (branch " {heap:=heapAtPre_A«anonHeapFunction»} ( self_5_A.salaries.length ≤ i_0_A_0 ∧ wellFormed(heapAtPre_A«anonHeapFunction») ∧ heapAtPre_A«anonHeapFunction» = heap ∧ self_5_A.<created> = TRUE ∧ HumanResources::exactInstance(self_5_A) = TRUE ∧ wellFormed(anon_heap_LOOP«anonHeapFunction») ∧ self_5_A.salaries.length = i_0_A_0 ∧ self_5_A.salaries.length ≥ i_0_A_0 ∧ bsum{int j#16;}(0, i_0_A_0, (self_5_A.salaries@heap)[j#16]@heap[anon(∅)]) = sum_1_0_A_0 ∧ i_0_A_0 ≥ 1 ∧ self_5_A.salaries.length ≥ 1 ∧ ¬ self_5_A.salaries@heapAtPre_A«anonHeapFunction» = null ∧ ¬{exc_5_A:=null || heap:=heap[anon(∅)] || result_5_A:=jdiv(sum_1_0_A_0, self_5_A.salaries.length)} ¬( self_5_A = selfAtPost_5_A ∧ result_5_A = resultAtPost_5_A ∧ exc_5_A = excAtPost_5_A ∧ heapAtPost_A = heap) ∧ ¬self_5_A = null) ∧ {heap:=heapAtPre_B«anonHeapFunction»} ( self_5_B.salaries.length = 0 ∧ wellFormed(heapAtPre_B«anonHeapFunction») ∧ heapAtPre_B«anonHeapFunction» = heap ∧ self_5_B.<created> = TRUE ∧ HumanResources::exactInstance(self_5_B) = TRUE ∧ ¬ self_5_B.salaries@heapAtPre_B«anonHeapFunction» = null ∧ ¬{exc_5_B:=null || result_5_B:=0} ¬( self_5_B = selfAtPost_5_B ∧ result_5_B = resultAtPost_5_B ∧ exc_5_B = excAtPost_5_B ∧ heapAtPost_B = heap) ∧ ¬self_5_B = null)"
+      (rule "andLeft" (formula "3"))
+      (builtin "One Step Simplification" (formula "4"))
+      (builtin "One Step Simplification" (formula "3"))
+      (rule "andLeft" (formula "4"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "5"))
+      (rule "notLeft" (formula "7"))
+      (rule "andLeft" (formula "3"))
+      (rule "notLeft" (formula "5"))
+      (rule "andLeft" (formula "6"))
+      (rule "andLeft" (formula "5"))
+      (rule "andLeft" (formula "4"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "9"))
+      (rule "andLeft" (formula "7"))
+      (rule "notLeft" (formula "9"))
+      (rule "andLeft" (formula "5"))
+      (rule "notLeft" (formula "4"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "10"))
+      (rule "andLeft" (formula "8"))
+      (rule "andLeft" (formula "5"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "10"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "3"))
+      (rule "andLeft" (formula "3"))
+      (rule "translateJavaDivInt" (formula "1") (term "0"))
+      (rule "translateJavaDivInt" (formula "1") (term "1"))
+      (rule "translateJavaCastInt" (formula "1") (term "0,0"))
+      (rule "translateJavaCastInt" (formula "1") (term "0,1"))
+      (rule "eqSymm" (formula "23"))
+      (rule "eqSymm" (formula "16"))
+      (rule "eqSymm" (formula "15"))
+      (rule "eqSymm" (formula "22"))
+      (rule "eqSymm" (formula "29"))
+      (rule "eqSymm" (formula "1"))
+      (rule "replace_known_left" (formula "2") (term "1") (ifseqformula "17"))
+      (builtin "One Step Simplification" (formula "2"))
+      (rule "applyEq" (formula "1") (term "1,0,1,0,1") (ifseqformula "13"))
+      (rule "applyEq" (formula "1") (term "1,1,2,0,0") (ifseqformula "21"))
+      (rule "applyEq" (formula "25") (term "1,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "1") (term "1,0") (ifseqformula "17"))
+      (rule "applyEq" (formula "8") (term "1,0,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "9") (term "0") (ifseqformula "2"))
+      (rule "inEqSimp_commuteGeq" (formula "9"))
+      (rule "applyEq" (formula "10") (term "1,1,2,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "28") (term "0") (ifseqformula "21"))
+      (rule "applyEq" (formula "10") (term "0,2,0") (ifseqformula "16"))
+      (rule "applyEq" (formula "27") (term "0") (ifseqformula "13"))
+      (rule "applyEq" (formula "6") (term "0,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "3") (term "1,0,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "1") (term "1,0,1,0,0") (ifseqformula "21"))
+      (rule "applyEq" (formula "1") (term "1,1,2,0,1") (ifseqformula "13"))
+      (rule "applyEq" (formula "2") (term "1,0,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "14") (term "1,0,1,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "20") (term "0,0") (ifseqformula "21"))
+      (rule "applyEq" (formula "12") (term "1,0,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "19") (term "1,0") (ifseqformula "21"))
+      (rule "applyEq" (formula "5") (term "1,0") (ifseqformula "13"))
+      (rule "applyEq" (formula "29") (term "0") (ifseqformula "22"))
+      (rule "eqSymm" (formula "29"))
+      (rule "applyEq" (formula "1") (term "1,0,1,1") (ifseqformula "13"))
+      (rule "applyEq" (formula "17") (term "1,0,0") (ifseqformula "21"))
+      (rule "applyEq" (formula "26") (term "1,0") (ifseqformula "21"))
+      (rule "applyEq" (formula "12") (term "0") (ifseqformula "2"))
+      (rule "qeq_literals" (formula "12"))
+      (rule "closeFalse" (formula "12"))
+   )
+)
+(branch " {heap:=heapAtPre_A«anonHeapFunction»} ( self_5_A.salaries.length = 0 ∧ wellFormed(heapAtPre_A«anonHeapFunction») ∧ heapAtPre_A«anonHeapFunction» = heap ∧ self_5_A.<created> = TRUE ∧ HumanResources::exactInstance(self_5_A) = TRUE ∧ ¬ self_5_A.salaries@heapAtPre_A«anonHeapFunction» = null ∧ ¬{exc_5_A:=null || result_5_A:=0} ¬( self_5_A = selfAtPost_5_A ∧ result_5_A = resultAtPost_5_A ∧ exc_5_A = excAtPost_5_A ∧ heapAtPost_A = heap) ∧ ¬self_5_A = null) ∧ {heap:=heapAtPre_B«anonHeapFunction»} ( self_5_B.salaries.length = 0 ∧ wellFormed(heapAtPre_B«anonHeapFunction») ∧ heapAtPre_B«anonHeapFunction» = heap ∧ self_5_B.<created> = TRUE ∧ HumanResources::exactInstance(self_5_B) = TRUE ∧ ¬ self_5_B.salaries@heapAtPre_B«anonHeapFunction» = null ∧ ¬{exc_5_B:=null || result_5_B:=0} ¬( self_5_B = selfAtPost_5_B ∧ result_5_B = resultAtPost_5_B ∧ exc_5_B = excAtPost_5_B ∧ heapAtPost_B = heap) ∧ ¬self_5_B = null)"
+   (rule "andLeft" (formula "3"))
+   (builtin "One Step Simplification" (formula "4"))
+   (builtin "One Step Simplification" (formula "3"))
+   (rule "andLeft" (formula "4"))
+   (rule "andLeft" (formula "3"))
+   (rule "andLeft" (formula "5"))
+   (rule "notLeft" (formula "7"))
+   (rule "andLeft" (formula "3"))
+   (rule "notLeft" (formula "5"))
+   (rule "andLeft" (formula "6"))
+   (rule "andLeft" (formula "5"))
+   (rule "andLeft" (formula "4"))
+   (rule "andLeft" (formula "3"))
+   (rule "andLeft" (formula "9"))
+   (rule "andLeft" (formula "7"))
+   (rule "notLeft" (formula "9"))
+   (rule "andLeft" (formula "5"))
+   (rule "notLeft" (formula "4"))
+   (rule "andLeft" (formula "3"))
+   (rule "andLeft" (formula "10"))
+   (rule "andLeft" (formula "8"))
+   (rule "andLeft" (formula "5"))
+   (rule "andLeft" (formula "3"))
+   (rule "andLeft" (formula "10"))
+   (rule "andLeft" (formula "3"))
+   (rule "translateJavaDivInt" (formula "1") (term "0"))
+   (rule "translateJavaDivInt" (formula "1") (term "1"))
+   (rule "translateJavaCastInt" (formula "1") (term "0,0"))
+   (rule "translateJavaCastInt" (formula "1") (term "0,1"))
+   (rule "eqSymm" (formula "9"))
+   (rule "eqSymm" (formula "8"))
+   (rule "eqSymm" (formula "17"))
+   (rule "eqSymm" (formula "16"))
+   (rule "eqSymm" (formula "23"))
+   (rule "eqSymm" (formula "1"))
+   (rule "replace_known_left" (formula "2") (term "0") (ifseqformula "3"))
+   (builtin "One Step Simplification" (formula "2") (ifInst ""  (formula "11")))
+   (rule "true_left" (formula "2"))
+   (rule "applyEq" (formula "1") (term "1,1,2,0,0") (ifseqformula "14"))
+   (rule "applyEq" (formula "4") (term "1,0") (ifseqformula "6"))
+   (rule "applyEq" (formula "1") (term "1,1,2,0,1") (ifseqformula "6"))
+   (rule "applyEq" (formula "10") (term "1,0,0") (ifseqformula "14"))
+   (rule "applyEq" (formula "5") (term "0,0") (ifseqformula "6"))
+   (rule "applyEq" (formula "1") (term "1,0,1,0,1") (ifseqformula "6"))
+   (rule "applyEq" (formula "1") (term "1,0,1,1") (ifseqformula "6"))
+   (rule "applyEq" (formula "1") (term "1,0,1,0,0") (ifseqformula "14"))
+   (rule "applyEq" (formula "2") (term "1,0,0") (ifseqformula "6"))
+   (rule "applyEq" (formula "12") (term "1,0") (ifseqformula "14"))
+   (rule "applyEq" (formula "21") (term "0") (ifseqformula "14"))
+   (rule "applyEq" (formula "20") (term "0") (ifseqformula "6"))
+   (rule "applyEq" (formula "13") (term "0,0") (ifseqformula "14"))
+   (rule "applyEq" (formula "18") (term "1,0") (ifseqformula "6"))
+   (rule "applyEq" (formula "1") (term "1,0,1,0") (ifseqformula "14"))
+   (rule "applyEq" (formula "22") (term "0") (ifseqformula "15"))
+   (rule "eqSymm" (formula "22"))
+   (rule "close" (formula "22") (ifseqformula "7"))
+)
+)
+
+}

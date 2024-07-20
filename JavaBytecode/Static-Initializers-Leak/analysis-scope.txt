@@ -1,0 +1,1 @@
+INTERFACE LStatic_Initializers_Leak;->main([Ljava/lang/String;)V

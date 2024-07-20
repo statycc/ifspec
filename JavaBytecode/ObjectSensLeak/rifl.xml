@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaBytecode-1.0.dtd">
+<riflspec>
+<interfacespec>
+<assignable handle="a_sources">
+<category name="sources">
+<source>
+<parameter class="LObjectSensLeak;" method="test(II)I" parameter="1"/>
+</source>
+</category>
+</assignable>
+<assignable handle="a_sinks">
+<category name="cat">
+<sink>
+<returnvalue class="LObjectSensLeak;" method="test(II)I"/>
+</sink>
+<source>
+<parameter class="LObjectSensLeak;" method="test(II)I" parameter="2"/>
+</source>
+</category>
+</assignable>
+</interfacespec>
+<domains>
+<domain name="top"/>
+<domain name="bottom"/>
+</domains>
+<flowrelation>
+<flow from="bottom" to="top"/>
+</flowrelation>
+<domainassignment>
+<assign domain="top" handle="a_sources"/>
+<assign domain="bottom" handle="a_sinks"/>
+</domainassignment>
+</riflspec>
+

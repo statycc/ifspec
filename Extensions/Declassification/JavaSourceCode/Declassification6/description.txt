@@ -1,0 +1,1 @@
+The following program calculates the average salary of a group of employees by iterating over an array storing the slaries of all employees and dividing it by the length of this array. If the company has no employees the function simply returns 0.

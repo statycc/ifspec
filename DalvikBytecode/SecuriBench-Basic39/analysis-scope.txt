@@ -1,0 +1,1 @@
+INTERFACE Lsecuribench/micro/basic/Basic39;->doGet(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V

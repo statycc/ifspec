@@ -1,0 +1,50 @@
+---------------------
+SecuriBench-Aliasing3
+---------------------
+The call to the sink Writer.println() is changed from insecure to secure.
+
+The program is secure because strings in Java do not alias.
+
+---------------------
+SecuriBench-Basic8
+---------------------
+The call to the sink Writer.println() is changed from insecure to secure.
+
+The program is secure because the sink is unreachable code.
+
+---------------------
+SecuriBench-Basic28
+---------------------
+The call to the sink Writer.println() is changed from insecure to secure.
+
+The program is secure because the sink is unreachable code.
+
+------------------------
+SecuriBench-Collections2
+------------------------
+The lists accessed are changed such that the intuition of the sample to be
+insecure is matched.
+
+The program in its original version was flagged insecure but was actually
+secure. This appeared to be caused by a simple typo in the program that is now
+fixed.
+
+------------------------
+SecuriBench-Collections3
+------------------------
+The lists accessed are changed such that the intuition of the sample to be
+insecure is matched.
+
+The program in its original version was flagged insecure but was actually
+secure. This appeared to be caused by a simple typo in the program that is now
+fixed.
+
+------------------------
+SecuriBench-Collections8
+------------------------
+The index of the list accessed is changed such that the intuition of the sample
+to be insecure is matched.
+
+The program in its original version was flagged insecure but was actually
+secure. This appeared to be caused by a simple typo in the program that is now
+fixed.

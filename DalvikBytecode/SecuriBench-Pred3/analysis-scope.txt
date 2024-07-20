@@ -1,0 +1,1 @@
+INTERFACE Lsecuribench/micro/pred/Pred3;->doGet(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V

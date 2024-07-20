@@ -1,0 +1,2 @@
+INTERFACE LsimpleTypes;->test()Z
+ENVIRONMENT LsimpleTypes;->main([Ljava/lang/String;)V

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaSourceCode-1.1.dtd">
+<riflspec>
+     <interfacespec>
+        <assignable handle="h">
+					<category name="highFields">
+						<source>
+							<field class="int[]" name="length"/>
+						</source>
+						<source>
+							<field class="int[]" name="content"/>
+						</source>
+					</category>
+        </assignable>
+        <assignable handle="l">
+            <sink>
+							<returnvalue class="HumanResources" method="getAverageSalary()" />
+						</sink>
+        </assignable>
+    </interfacespec>
+    
+    <domains><domain name="high" /><domain name="low" /></domains>
+    
+    <flowrelation><flow from="low" to="high" /></flowrelation>
+
+    <domainassignment>
+        <assign handle="h" domain="high" />
+        <assign handle="l" domain="low" />
+    </domainassignment>
+
+  <hatches>
+    <hatch to="low">
+      <expression>
+        <![CDATA[
+	   (\sum int i; 0 <= i && i < salaries.length; salaries[i]) / salaries.length
+        ]]>
+      </expression>
+      <referencepoint class="HumanResources" method="getAverageSalary()" label="declass" />
+    </hatch>
+    <hatch to="low">
+      <expression>
+        salaries.length == 0
+      </expression>
+      <referencepoint class="HumanResources" method="getAverageSalary()" label="declass" />
+    </hatch>
+  </hatches>
+</riflspec>

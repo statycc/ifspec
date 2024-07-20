@@ -1,0 +1,2 @@
+INTERFACE LsimpleArraySize;->arraySizeLeak(I)I
+ENVIRONMENT LsimpleArraySize;->main([Ljava/lang/String;)V

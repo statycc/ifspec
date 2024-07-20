@@ -1,0 +1,1 @@
+The method onLocationChanged(Location loc) is called with a Location and prints "bonjour" if the user is close to the Eiffel tower. The method getPointOfInterest(String name) returns the location for a given point of interest or throws an exception of the given point of interest is unknown.

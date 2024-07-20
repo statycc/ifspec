@@ -1,0 +1,2 @@
+INTERFACE LIFLoop;->insecure_ifl()V
+ENVIRONMENT LIFLoop;->main([Ljava/lang/String;)V

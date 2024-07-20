@@ -1,0 +1,4 @@
+The following program checks a given username and password against a password
+database. More precisely, it iterates over pairs of users and passwords stored
+in two private fields and returns true if the entered pair of a username and
+password exists and false otherwise.

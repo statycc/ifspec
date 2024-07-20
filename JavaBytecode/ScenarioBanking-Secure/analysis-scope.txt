@@ -1,0 +1,8 @@
+INTERFACE LAccount;-><init>()V
+INTERFACE LAccount;->deposit(D)V
+INTERFACE LAccountOwner;-><init>(LAccount;)V
+INTERFACE LBeneficiary;-><init>()V
+INTERFACE LAccountOwner;->payBeneficiary(LBeneficiary;D)V
+ENVIRONMENT LMain;->main([Ljava/lang/String;)V
+ENVIRONMENT LErrorLog;->logError(Ljava/lang/String;)V
+ENVIRONMENT LTransactionLog;->logTransaction(Ljava/lang/String;)V

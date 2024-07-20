@@ -1,0 +1,2 @@
+INTERFACE LMain;->noLeak(I)I
+ENVIRONMENT LMain;->main([Ljava/lang/String;)V

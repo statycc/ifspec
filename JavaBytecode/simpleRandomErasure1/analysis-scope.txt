@@ -1,0 +1,1 @@
+INTERFACE LsimpleRandomErasure;->main([Ljava/lang/String;)V

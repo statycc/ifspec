@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaBytecode-1.0.dtd">
+<riflspec>
+  <interfacespec>
+    <assignable handle="password">
+	    <source>
+        <field class="LPasswordManager;" name="password"/>
+      </source>
+    </assignable>
+    <assignable handle="output">
+			<sink>
+      	<parameter class="Ljava/io/PrintStream;" method="println(Ljava/lang/String;)V" parameter="1"/>
+      </sink>
+    </assignable>
+		<assignable handle="highFields">
+			<category name="highFieldsPWManager">
+				<source>
+					<field class="LPasswordManager;" name="loggedIn"/>				
+				</source>	
+				<source>
+					<field class="LPasswordManager;" name="invalidTries"/>
+				</source>
+			</category>
+		</assignable>
+  </interfacespec>
+
+  <domains>
+<domain name="high"/>
+<domain name="low"/>
+</domains>
+  <flowrelation>
+<flow from="low" to="high"/>
+</flowrelation>
+  <domainassignment>
+    <assign domain="high" handle="password"/>
+    <assign domain="low" handle="output"/>
+		<assign domain="high" handle="highFields"/>
+  </domainassignment>
+</riflspec>
+

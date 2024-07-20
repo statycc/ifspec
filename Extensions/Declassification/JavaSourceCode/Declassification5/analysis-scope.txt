@@ -1,0 +1,1 @@
+INTERFACE Password.check(int,int)

@@ -1,0 +1,2 @@
+INTERFACE LsimpleTypesCastingError;->test()Z
+ENVIRONMENT LsimpleTypesCastingError;->main([Ljava/lang/String;)V

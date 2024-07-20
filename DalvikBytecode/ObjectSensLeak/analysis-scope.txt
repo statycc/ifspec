@@ -1,0 +1,2 @@
+INTERFACE LObjectSensLeak;->test(II)I
+ENVIRONMENT LObjectSensLeak;->main([Ljava/lang/String;)V

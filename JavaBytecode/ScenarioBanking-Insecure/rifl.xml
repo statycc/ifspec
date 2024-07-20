@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaBytecode-1.0.dtd">
+<riflspec>
+    <interfacespec>
+        <assignable handle="balance">
+            <source>
+                <field class="LAccount;" name="balance"/>
+            </source>
+        </assignable>
+        <assignable handle="errorLog">
+            <sink>
+                <parameter class="LErrorLog;" method="logError(Ljava/lang/String;)V" parameter="1"/>
+            </sink>
+        </assignable>
+        <assignable handle="transactionLog">
+            <sink>
+                <parameter class="LTransactionLog;" method="logTransaction(Ljava/lang/String;)V" parameter="1"/>
+            </sink>
+        </assignable>
+    </interfacespec>
+    <domains>
+        <domain name="high"/>
+        <domain name="low"/>
+    </domains>
+    <flowrelation>
+        <flow from="low" to="high"/>
+    </flowrelation>
+    <domainassignment>
+        <assign domain="low" handle="errorLog"/>
+        <assign domain="high" handle="transactionLog"/>
+        <assign domain="high" handle="balance"/>
+    </domainassignment>
+</riflspec>
+

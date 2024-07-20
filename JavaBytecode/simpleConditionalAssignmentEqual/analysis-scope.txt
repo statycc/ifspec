@@ -1,0 +1,2 @@
+INTERFACE LsimpleConditionalAssignmentEqual;->test()I
+ENVIRONMENT LsimpleConditionalAssignmentEqual;->main([Ljava/lang/String;)V

@@ -1,0 +1,14 @@
+Checks the syntactic correctness of a RIFL specification for
+Dalvik bytecode. The checker supports versions of RIFL up to
+1.1.
+
+To be applicable to a RIFL specification, the specification
+must contain the following document type declaration: 
+  <!DOCTYPE riflspec SYSTEM [dtd]>
+Here, [dtd] is the path to a DTD for a version of RIFL for
+Dalvik bytecode, e.g., "../rifl-DalvikBytecode-1.1.dtd“.
+
+To run the tool, call:
+  java -jar rifl-syntaxchecker-1.1-dalvik.jar [rifl],
+where [rifl] is the path to the RIFL specification to be
+checked.

@@ -1,0 +1,3 @@
+INTERFACE LEg1;->f(II)I
+ENVIRONMENT LEg1;->main([Ljava/lang/String;)V
+ENVIRONMENT LEg1;->randInt()I

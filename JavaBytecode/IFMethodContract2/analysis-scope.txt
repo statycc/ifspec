@@ -1,0 +1,2 @@
+INTERFACE LIFMethodContract;->insecure_if_high_n1(I)I
+ENVIRONMENT LIFMethodContract;->main([Ljava/lang/String;)V

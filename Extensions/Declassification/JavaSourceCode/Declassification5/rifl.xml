@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaSourceCode-1.1.dtd">
+<riflspec>
+     <interfacespec>
+        <assignable handle="h">
+					<category name="highFields">
+						<source>
+							<field class="Password" name="names" />
+						</source>
+						<source>
+							<field class="Password" name="passwords" />
+						</source>
+					</category>	
+        </assignable>
+        <assignable handle="l">
+            <sink>
+							<returnvalue class="Password" method="check(int,int)" />
+						</sink>
+        </assignable>
+    </interfacespec>
+    
+    <domains><domain name="high" /><domain name="low" /></domains>
+    
+    <flowrelation><flow from="low" to="high" /></flowrelation>
+
+    <domainassignment>
+        <assign handle="h" domain="high" />
+        <assign handle="l" domain="low" />
+    </domainassignment>
+
+  <hatches>
+    <hatch to="low">
+      <expression>
+	<![CDATA[
+	  \exists int i; names[i] == user && passwords[i] == password
+	]]>	 
+      </expression>
+      <referencepoint class="Password" method="check(int,int)" label="declass" />
+    </hatch>
+  </hatches>
+</riflspec>

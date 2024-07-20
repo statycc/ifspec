@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE riflspec SYSTEM "../rifl-JavaBytecode-1.0.dtd">
+<riflspec>
+  <interfacespec>
+    <assignable handle="h">
+      <category name="someCat">
+	<source>
+<parameter class="LMyClass;" method="compute(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;" parameter="1"/>
+</source>
+      </category>
+    </assignable>
+    <assignable handle="l">
+      <category name="anotherCat">
+	<source>
+<parameter class="LMyClass;" method="compute(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;" parameter="2"/>
+</source>
+	<sink>
+<returnvalue class="LMyClass;" method="compute(Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;"/>
+</sink>
+      </category>
+    </assignable>
+  </interfacespec>
+
+  <domains>
+<domain name="high"/>
+<domain name="low"/>
+</domains>
+  <flowrelation>
+<flow from="low" to="high"/>
+</flowrelation>
+  <domainassignment>
+    <assign domain="high" handle="h"/>
+    <assign domain="low" handle="l"/>
+  </domainassignment>
+</riflspec>
+

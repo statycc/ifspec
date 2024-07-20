@@ -1,0 +1,1 @@
+INTERFACE LSimpleReflection;->main([Ljava/lang/String;)V

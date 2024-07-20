@@ -1,0 +1,2 @@
+INTERFACE LSimpleReflection;->hackSafe(LSecureSafe;)Ljava/lang/String;
+ENVIRONMENT LSimpleReflection;->main([Ljava/lang/String;)V

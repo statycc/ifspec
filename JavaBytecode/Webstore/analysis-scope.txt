@@ -1,0 +1,2 @@
+INTERFACE LWebstore;->buyProduct(II)I
+ENVIRONMENT LWebstore;->main([Ljava/lang/String;)V

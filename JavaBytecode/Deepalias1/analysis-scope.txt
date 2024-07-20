@@ -1,0 +1,4 @@
+INTERFACE Lprogram;->foo(Z)Z
+ENVIRONMENT Lprogram;->main([Ljava/lang/String;)V
+ENVIRONMENT Lprogram;->randBool()Z
+ENVIRONMENT Lprogram;->randInt()I

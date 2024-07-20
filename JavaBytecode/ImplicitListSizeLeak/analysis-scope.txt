@@ -1,0 +1,2 @@
+INTERFACE LsimpleListSize;->listSizeLeak(I)I
+ENVIRONMENT LsimpleListSize;->main([Ljava/lang/String;)V

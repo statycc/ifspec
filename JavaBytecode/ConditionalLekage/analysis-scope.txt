@@ -1,0 +1,3 @@
+INTERFACE LDivisionByZero;->divide(II)I
+ENVIRONMENT LDivisionByZero;->main([Ljava/lang/String;)V
+ENVIRONMENT LDivisionByZero;->randInt()I

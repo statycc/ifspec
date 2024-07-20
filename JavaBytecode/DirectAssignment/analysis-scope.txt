@@ -1,0 +1,3 @@
+INTERFACE LDirectAssignment;->leakyMethod(I)I
+ENVIRONMENT LDirectAssignment;->main([Ljava/lang/String;)V
+ENVIRONMENT LDirectAssignment;->randInt()I
