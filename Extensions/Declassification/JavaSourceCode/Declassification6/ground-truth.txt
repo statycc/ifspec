@@ -1,3 +1,0 @@
-SECURE
-
-That is, because the attacker only observes the return value of the method.

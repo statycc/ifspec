@@ -1,5 +1,0 @@
-flow*-predicate (KeY) [1]
-
-[1] B. Beckert, D. Bruns, V. Klebanov, C. Scheben, P. H. Schmitt, and M. Ulbrich, 
-“Information Flow in Object-Oriented Software,”
-in LOPSTR ’13, pp. 19–37.

@@ -3,8 +3,8 @@
 **IFSpec is a collection of micro-benchmarks of information-flow vulnerabilities in Java and Android programs.**
 
 IFSpec benchmarks are provided in three formats: Java source code, Java bytecode and Dalvik bytecode.
-Each benchmark includes ground truth, description, and identified sources and sinks.
-The benchmark suite was introduced in ["A Uniform Information-Flow Security Benchmark Suite for Source Code and Bytecode"](https://doi.org/10.1007/978-3-030-03638-6_27).
+The benchmark suite was introduced in ["A Uniform Information-Flow Security Benchmark Suite for Source Code and Bytecode"](https://doi.org/10.1007/978-3-030-03638-6_27)
+in 2018 by Tobias Hamann, Mihai Herda, Heiko Mantel, Martin Mohr, David Schneider & Markus Tasch.
 
 ### Sample tags and their distribution
 
@@ -20,9 +20,20 @@ The benchmark suite was introduced in ["A Uniform Information-Flow Security Benc
 | reflection         |    7    | information flow involving reflection               |       ✓        |       ✓        |
 |                    |         | **TOTAL**                                           |     **46**     |     **34**     |                                            
 
-This repository contains all benchmarks as-is, without modification.
-This repository does not include the tested tools or scripts to reproduce the results presented in the original paper;
-refer to the [original artifact](https://www.spp-rs3.de/IFSpec) to obtain tools and reproduction scripts.
+### Repository Content
+
+This repository contains all benchmarks as-is and without modification.
+* Directories `JavaSourceCode` / `JavaByteCode` / `DalvikByteCode` contain the benchmarks in their respective target language.
+* In addition, each benchmark includes, e.g., ground truth, description, and identified sources and sinks.
+* `tags.txt` contains a list of all tags, across all benchmarks
+* `rifl-*` files are specification language files, used for defining sources and sinks.
+
+This repository does not include: 
+* The tested tools or scripts to reproduce the results presented in the original paper.
+* Files version.txt and security-semantics.txt files were omitted as unnecessary.
+* The Extensions benchmarks are omitted, as they only include specific target languages. 
+
+Refer to the [original artifact](https://www.spp-rs3.de/IFSpec) to obtain omitted components if needed.
 
 ### Statistics
 
@@ -57,8 +68,9 @@ Files may be duplicated between secure/insecure benchmark variants.
 Calculated with [cloc](https://github.com/AlDanial/cloc).
 
 
-
+### Additional Notes
 
 * About [RIFL Specification Language](https://publikationen.bibliothek.kit.edu/1000092713)
 * [Modifications notes](adjusted_securibench_micro_classifications.txt) to SecuriBench benchmarks
 * For licensing terms see [LICENSE](LICENSE.md)
+ 

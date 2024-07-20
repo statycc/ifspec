@@ -1,5 +1,0 @@
-This example was extracted from DroidBench: https://github.com/secure-software-engineering/DroidBench.
-We have extracted one RIFL specification which mentions all sources and sinks which were mentioned in any DroidBench example.
-You can convince yourself of that by examining the source code at https://github.com/secure-software-engineering/DroidBench/tree/master/eclipse-project/Callbacks/Unregister1
-Hence, this RIFL specification should be as least as restrictive as the desired security policy. It could be refined for this particular
-example by removing sources/sinks. Then it would express truly faithfully the desired security property.

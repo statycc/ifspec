@@ -1,4 +1,0 @@
-intra-procedural
-implicit-flows
-declassification
-arrays

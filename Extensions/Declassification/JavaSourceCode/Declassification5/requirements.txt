@@ -1,3 +1,0 @@
-There should be no information flow from the pairs of username and password
-internally to the return value of the method except that there exists a pair
-username and password matching the provided input or not.

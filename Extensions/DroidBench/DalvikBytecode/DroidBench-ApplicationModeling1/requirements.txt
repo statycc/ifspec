@@ -1,2 +1,0 @@
-This example was extracted from DroidBench: https://github.com/secure-software-engineering/DroidBench
-For the actual security requirements, please refer to https://github.com/secure-software-engineering/DroidBench/tree/master/eclipse-project/AndroidSpecific/ApplicationModeling1

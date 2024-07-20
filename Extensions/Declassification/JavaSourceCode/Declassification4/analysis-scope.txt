@@ -1,2 +1,0 @@
-ENVIRONMENT FormServlet.getUserInfo(Name)
-INTERFACE FormServlet.receiveData(FormData)

@@ -1,1 +1,0 @@
-The method receiveData(FormData data) receives the data entered in a form, e.g., on a website and prints out the that the transaction was successful to standard output. The method getUserInfo prints information of the user specified by the given input.

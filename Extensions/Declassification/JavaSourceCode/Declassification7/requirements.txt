@@ -1,4 +1,0 @@
-The requirement is that the salaries are not revealed, i.e., that the content of
-the array stored in salaries does not flow to the return value of the method
-getAverageSalary(). The only information that may be declassified is the 
-average salary. 

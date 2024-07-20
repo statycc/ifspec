@@ -1,3 +1,0 @@
-SECURE 
-
-The method prints the String "bonjour" to standard output but only if the location provided as input does not differ by more than 0.1 from the location of the Eiffel tower.
