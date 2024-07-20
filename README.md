@@ -9,16 +9,16 @@ The benchmark suite was introduced in ["A Uniform Information-Flow Security Benc
 ### Sample tags and their distribution
 
 | Tag                | Samples | Types of information flow covered                   | Explicit flows | Implicit flows |
-|:-------------------|:--------:|:----------------------------------------------------|:---------------:|:--------------:|
-| simple             |    18    | simple information flow not covered by tags below   |        ✓        |                |
-| high-conditional   |    11    | information flow via secret-dependent conditionals  |                 |       ✓        |
-| arrays             |    12    | information flow involving array length and content |        ✓        |       ✓        |
-| class-initializers |    7     | information flow involving class initializers       |        ✓        |       ✓        |
-| exceptions         |    11    | information flow via exception handling             |                 |       ✓        |
-| library            |    7     | information flow involving library calls            |        ✓        |       ✓        |
-| aliasing           |    11    | information flow involving object aliasing          |        ✓        |       ✓        |
-| reflection         |    7     | information flow involving reflection               |        ✓        |       ✓        |
-|                    |          | **TOTAL**                                           |     **46**      |     **34**     |                                            
+|:-------------------|:-------:|:----------------------------------------------------|:--------------:|:--------------:|
+| simple             |   18    | simple information flow not covered by tags below   |       ✓        |                |
+| high-conditional   |   11    | information flow via secret-dependent conditionals  |                |       ✓        |
+| arrays             |   12    | information flow involving array length and content |       ✓        |       ✓        |
+| class-initializers |    7    | information flow involving class initializers       |       ✓        |       ✓        |
+| exceptions         |   11    | information flow via exception handling             |                |       ✓        |
+| library            |    7    | information flow involving library calls            |       ✓        |       ✓        |
+| aliasing           |   11    | information flow involving object aliasing          |       ✓        |       ✓        |
+| reflection         |    7    | information flow involving reflection               |       ✓        |       ✓        |
+|                    |         | **TOTAL**                                           |     **46**     |     **34**     |                                            
 
 This repository contains all benchmarks as-is, without modification.
 This repository does not include the tested tools or scripts to reproduce the results presented in the original paper;
