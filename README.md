@@ -3,8 +3,7 @@
 **IFSpec is a collection of micro-benchmarks of information-flow vulnerabilities in Java and Android programs.**
 
 IFSpec benchmarks are provided in three formats: Java source code, Java bytecode and Dalvik bytecode.
-The benchmark suite was introduced in ["A Uniform Information-Flow Security Benchmark Suite for Source Code and Bytecode"](https://doi.org/10.1007/978-3-030-03638-6_27)
-in 2018 by Tobias Hamann, Mihai Herda, Heiko Mantel, Martin Mohr, David Schneider & Markus Tasch.
+The benchmark suite was introduced in ["A Uniform Information-Flow Security Benchmark Suite for Source Code and Bytecode"](https://doi.org/10.1007/978-3-030-03638-6_27), in 2018, by Tobias Hamann, Mihai Herda, Heiko Mantel, Martin Mohr, David Schneider, and Markus Tasch.
 
 ## Sample tags and their distribution
 
