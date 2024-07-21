@@ -74,7 +74,8 @@ SUM:                           248          43636           1388          73484
 
 * This means a benchmark may contain multiple files.
 * Certain files are be duplicated between secure/insecure benchmark variants.   
-* The four Deep* benchmarks account for >90% of the lines of code; the remaining 228 benchmarks are < 200 LOC.
+* The four Deep* benchmarks account for >90% of the lines of code
+* The remaining 228 benchmarks are < 200 LOC.
 
 Statistics calculated with [cloc](https://github.com/AlDanial/cloc).
 
