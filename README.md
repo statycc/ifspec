@@ -24,7 +24,8 @@ The benchmark suite was introduced in ["A Uniform Information-Flow Security Benc
 
 This repository contains all benchmarks as-is and without modification.
 Directories `JavaSourceCode` and `JavaByteCode` and `DalvikByteCode` contain the benchmark suite in respective target languages.
-Under these directories, each subdirectory is a benchmark, and the subdirectory name is the benchmark name.
+Under these directories, each subdirectory is a benchmark. 
+The subdirectory name is the benchmark name. 
 
 Each benchmark includes files:
 
@@ -35,7 +36,7 @@ Each benchmark includes files:
 * **ground-truth** - secure or insecure.
 * **requirements** - condition for secure program.
 * **rifl** - source/sink specification in [RIFL language][RIFL].
-* **tags** - tags applicable to the benchmark.     
+* **tags** - tags applicable to the benchmark.
 
 This repository does not contain: 
 * The tested tools or scripts to reproduce the results presented in the original paper.
@@ -74,7 +75,7 @@ SUM:                           248          43636           1388          73484
 
 * This means a benchmark may contain multiple files.
 * Certain files are be duplicated between secure/insecure benchmark variants.   
-* The four Deep* benchmarks account for >90% of the lines of code
+* The four Deep* benchmarks account for >90% of the lines of code.
 * The remaining 228 benchmarks are < 200 LOC.
 
 Statistics calculated with [cloc](https://github.com/AlDanial/cloc).
@@ -82,6 +83,7 @@ Statistics calculated with [cloc](https://github.com/AlDanial/cloc).
 
 ## Additional Notes
 
+* The precompiled files were compiled with Java v1.8.0 (Update 91)
 * Information about [RIFL Specification Language][RIFL]
 * SecuriBench benchmarks [modifications notes](adjusted_securibench_micro_classifications.txt) 
 * For licensing terms see [LICENSE](LICENSE.md)
