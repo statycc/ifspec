@@ -28,9 +28,9 @@ Under these directories, each subdirectory is a benchmark, and the subdirectory 
 
 Each benchmark includes files:
 
-* **program** - benchmark source code + a precompiled .jar (for bytecode) + precompiled .dex (for dalvik)
-* **analysis-scope** - the analysis scope, e.g., method name, the analyzer should evaluate
-* **description** - human-readble description of the benchmark
+* **program** - benchmark source code + a precompiled .jar (for bytecode) + precompiled .dex (for dalvik).
+* **analysis-scope** - the analysis scope, e.g., method name, the analyzer should evaluate.
+* **description** - human-readble description of the benchmark.
 * **faithfulness** - human-readble description of the security requirement.
 * **ground-truth** - secure or insecure.
 * **requirements** - condition for secure program.
