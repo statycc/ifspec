@@ -1,4 +1,4 @@
-# IFSPEC Benchmark suite v1.0
+# IFSPEC Benchmark Suite v1.0
 
 **IFSpec is a collection of micro-benchmarks of <mark>information-flow vulnerabilities</mark> in Java and Android programs.**
 
