@@ -2,8 +2,8 @@
 
 **IFSpec is a collection of micro-benchmarks of <mark>information-flow vulnerabilities</mark> in Java and Android programs.**
 
-IFSpec benchmarks are provided in three formats: Java source code, Java bytecode and Dalvik bytecode.
-The benchmark suite was introduced in ["A Uniform Information-Flow Security Benchmark Suite for Source Code and Bytecode"](https://doi.org/10.1007/978-3-030-03638-6_27) 
+IFSpec benchmarks are provided in three formats: Java source code, Java bytecode and [Dalvik executable format](https://source.android.com/docs/core/runtime/dex-format).
+The benchmark suite was introduced in ["A Uniform Information-Flow Security Benchmark Suite for Source Code and Bytecode"](https://doi.org/10.1007/978-3-030-03638-6_27)
 (2018) by Tobias Hamann, Mihai Herda, Heiko Mantel, Martin Mohr, David Schneider and Markus Tasch.
 
 ## Sample tags and their distribution
@@ -23,9 +23,9 @@ The benchmark suite was introduced in ["A Uniform Information-Flow Security Benc
 ## Repository Content
 
 This repository contains all benchmarks as-is and without modification.
-Directories `JavaSourceCode` and `JavaByteCode` and `DalvikByteCode` contain the benchmark suite in respective target languages.
-Under these directories, each subdirectory is a benchmark. 
-The subdirectory name is the benchmark name. 
+Directories `JavaSourceCode` (.java) and `JavaByteCode` (.jar) and `DexByteCode` (.dex) contain the benchmark suite in respective target languages.
+Under these directories, each subdirectory is a benchmark.
+The subdirectory name is the benchmark name.
 
 Each benchmark includes files:
 
@@ -38,7 +38,7 @@ Each benchmark includes files:
 * **rifl** - source/sink specification in [RIFL language][RIFL].
 * **tags** - tags applicable to the benchmark.
 
-This repository does not contain: 
+This repository _does not contain_:
 * The tested tools or scripts to reproduce the results presented in the original paper.
 * The "Extensions" subdirectory was omitted since it only includes specific target languages.
 * Files version.txt and security-semantics.txt files were omitted as unnecessary.
@@ -73,8 +73,8 @@ SUM:                           248          43636           1388          73484
 -------------------------------------------------------------------------------
 ```
 
-* This means a benchmark may contain multiple files.
-* Certain files are be duplicated between secure/insecure benchmark variants.   
+* A single benchmark can include multiple Java files.
+* Some files are be duplicated between secure/insecure benchmark variants.
 * The four Deep* benchmarks account for >90% of the lines of code.
 * The remaining 228 benchmarks are < 200 LOC.
 
@@ -84,8 +84,9 @@ Statistics calculated with [cloc](https://github.com/AlDanial/cloc).
 ## Additional Notes
 
 * The precompiled files were compiled with Java v1.8.0 (Update 91)
+* "DalvikByteCode" was renamed to `DexByteCode`, to distinguish the file format from the discontinued runtime.
 * Information about [RIFL Specification Language][RIFL]
-* SecuriBench benchmarks [modifications notes](adjusted_securibench_micro_classifications.txt) 
+* SecuriBench benchmarks [modifications notes](adjusted_securibench_micro_classifications.txt)
 * For licensing terms see [LICENSE](LICENSE.md)
- 
+
 [RIFL]: https://publikationen.bibliothek.kit.edu/1000092713
